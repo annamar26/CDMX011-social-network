@@ -1,0 +1,258 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+     overflow-y: hidden; 
+}
+body{
+    background-color:  #F2E4D8;
+}
+label{
+  
+    width: 95%;
+    font-family: 'Delius Unicase';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2vmax;
+   
+ 
+    color:#3E674F;
+    letter-spacing: -0.02em;
+     text-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+   text-align:  left !important;
+ 
+}
+
+nav {
+
+  height: 7vh;
+    left: 0px;
+    top: 0px;
+    background-color: #000000;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2% 2% 2% 2%;
+
+}
+li{
+    color: #ffffff;
+}
+.button{
+    
+    margin-top: 3.5vh; 
+   width: 50vmin;
+   height: 7.8vmax;
+    text-align: center;
+    font-family: 'Delius Unicase', cursive;
+    font-size: 2.3vmax;
+    background: #3E674F;
+    border: 3px solid #000000;
+box-shadow: 1.5vh 1.5vh 1.5vh rgba(0, 0, 0, 0.25);
+border-radius: 8px;
+color: white;
+font-style: normal;
+font-weight: bold;
+text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+cursor: pointer;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding-left: 1.5%;
+
+}
+.gicon{
+margin: 0% 0.5% 0% 0%;
+
+height: 100%;
+
+
+}
+.menu{
+    color:white;
+    filter: invert(100%);
+    width: 6vmin;
+    height: 5vmin;
+    cursor: pointer;
+}
+.logo{
+    padding-top: 0.5%;
+    width:40vmin;
+    height: 6vmin;
+    cursor: pointer;
+}
+.secondary-container{
+    height: 30vh;
+    display:flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    background-color:  #F2E4D8;
+      
+}
+.secondary-container>input{
+margin-top: 5vh; 
+   width: 45vmin;
+   height: 12.5vmin;
+    text-align: center;
+    font-family: 'Delius Unicase', cursive;
+    font-size: 4vmin;
+    background: #000000;
+border: 3px solid #ffffff;
+box-shadow: 1.5vh 1.5vh 1.5vh rgba(0, 0, 0, 0.25);
+border-radius: 8px;
+color: white;
+font-style: normal;
+font-weight: bold;
+text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+cursor: pointer;
+
+
+}
+
+.secondary-container>p{
+    font-family: 'Actor';
+font-style: normal;
+font-weight: normal;
+font-size: 2.8vh;
+line-height: 3.5vh;
+letter-spacing: 0.02em;
+color: #000000;
+margin-top: 2.5vh;
+;
+
+}
+.secondary-container>a{
+    font-family: 'Delius Unicase';
+font-style: normal;
+font-weight: bold;
+font-size: 2.8vh;
+
+color:#3E674F;
+letter-spacing: -0.02em;
+text-decoration-line: underline;
+text-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+cursor: pointer;
+
+
+
+}
+.signUp-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+   
+
+}
+.signUp-container>h2{
+    font-family: 'Delius Unicase';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 5vmin;
+    
+    color:#3E674F;
+    letter-spacing: -0.02em;
+ 
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+    width:60%;
+    text-align: center;
+    margin-top: 5vh;
+}
+.signUp-container>form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  align-items: center;
+
+   
+    
+    color:#3E674F;
+   
+ 
+  
+    width:70%;
+    margin-top: 4vh;
+    height:45vh;
+ 
+}
+.signUp-container>form>input{
+  outline: none;
+  border: none;
+  background-color:#F2E4D8 ;
+  border-bottom: 0.4vh solid #000000 ;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size:3.3vh;
+  
+
+   
+    
+    color:#000000;
+   
+ 
+  
+    width:95%;
+ 
+    margin-bottom: 2vh;
+    margin-top: 1vh;
+ 
+}
+#signUpSubmit, #loginSubmit{
+   
+    margin-top: 2vh; 
+   width: 50vmin;
+   height: 13vmin;
+    text-align: center;
+    font-family: 'Delius Unicase', cursive;
+    font-size: 4.5vmin;
+    background: #3E674F;
+    border: 3px solid #000000;
+box-shadow: 1.5vh 1.5vh 1.5vh rgba(0, 0, 0, 0.25);
+border-radius: 8px;
+color: white;
+font-style: normal;
+font-weight: bold;
+text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+cursor: pointer;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+
+}
+
+.return{
+    height:10vmin;
+    margin-left: 65vw;
+    margin-bottom:10vmin;
+    cursor:pointer;
+
+}
+.welcome-container{
+    display: flex;
+    flex-direction: column;
+    
+        align-items: center;
+        padding-top:15vh;
+    height:55vh;
+    background-image: url(fondo.jpg);
+    background-size:125% 100%;
+   background-repeat: no-repeat; 
+}
+.welcome-container>h1{
+    width:60vw;
+    color: #ffffff;
+    font-family: 'Delius Unicase', cursive;
+    font-size: 3vmax;
+    text-align: center;
+    text-shadow: 3px 3px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
