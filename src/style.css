@@ -8,18 +8,26 @@
 body{
     background-color:  #F2E4D8;
 }
+hr{
+    border:0.15vmax solid #000000;
+    width: 75%;
+}
 label{
-  
+    padding: 0% 1.2% 0% 0%;
+  margin-top: 0.1vh;
     width: 95%;
     font-family: 'Delius Unicase';
     font-style: normal;
-    font-weight: bold;
-    font-size: 2vmax;
+    font-weight: semibold;
+    font-size: 3.3vmin;
+
+   
+ 
    
  
     color:#3E674F;
     letter-spacing: -0.02em;
-     text-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+    text-shadow: 0.1vmax 0.1vmax rgba(0, 0, 0, 0.1);
    text-align:  left !important;
  
 }
@@ -42,20 +50,20 @@ li{
 }
 .button{
     
-    margin-top: 3.5vh; 
+    margin-top: 3vmin; 
    width: 50vmin;
-   height: 7.8vmax;
+   height: 13vmin;
     text-align: center;
     font-family: 'Delius Unicase', cursive;
-    font-size: 2.3vmax;
+    font-size: 3vmin;
     background: #3E674F;
-    border: 3px solid #000000;
+    border: 0.3vw solid #ffffff;
 box-shadow: 1.5vh 1.5vh 1.5vh rgba(0, 0, 0, 0.25);
-border-radius: 8px;
+border-radius: 1.5vmax;
 color: white;
 font-style: normal;
 font-weight: bold;
-text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+text-shadow: 0.1vmax 0.1vmax rgba(0, 0, 0, 0.1);
 cursor: pointer;
 display: flex;
 flex-direction: row;
@@ -63,9 +71,11 @@ justify-content: center;
 align-items: center;
 padding-left: 1.5%;
 
+}.div{
+    width:50vmin;
 }
+
 .gicon{
-margin: 0% 0.5% 0% 0%;
 
 height: 100%;
 
@@ -88,7 +98,7 @@ height: 100%;
     height: 30vh;
     display:flex;
     flex-direction: column;
-    /* justify-content: center; */
+   justify-content: space-evenly;
     align-items: center;
     background-color:  #F2E4D8;
       
@@ -101,13 +111,13 @@ margin-top: 5vh;
     font-family: 'Delius Unicase', cursive;
     font-size: 4vmin;
     background: #000000;
-border: 3px solid #ffffff;
+border:0.5vmin solid #ffffff;
 box-shadow: 1.5vh 1.5vh 1.5vh rgba(0, 0, 0, 0.25);
-border-radius: 8px;
+border-radius: 1.5vmax;
 color: white;
 font-style: normal;
 font-weight: bold;
-text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+text-shadow: 0.1vmax 0.1vmax rgba(0, 0, 0, 0.1);
 cursor: pointer;
 
 
@@ -134,16 +144,33 @@ font-size: 2.8vh;
 color:#3E674F;
 letter-spacing: -0.02em;
 text-decoration-line: underline;
-text-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+text-shadow: 0.1vmax 0.1vmax rgba(0, 0, 0, 0.1);
 cursor: pointer;
 
 
 
 }
+.s-button{
+   
+    width: 3vmax;
+    position:absolute;
+right: 16%;
+    top: 51%;
+    z-index: 5px;
+}
+#seeLps{
+       
+    width: 3vmax;
+    position:absolute;
+right: 16%;
+    top: 46%;
+    z-index: 5px;
+}
 .signUp-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+   
     height: 100vh;
    
 
@@ -152,20 +179,21 @@ cursor: pointer;
     font-family: 'Delius Unicase';
     font-style: normal;
     font-weight: bold;
-    font-size: 5vmin;
+    font-size: 4.95vmin;
     
     color:#3E674F;
     letter-spacing: -0.02em;
  
-    text-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+    text-shadow: 0.1vmax 0.1vmax rgba(0, 0, 0, 0.1);
     width:60%;
     text-align: center;
-    margin-top: 5vh;
+    margin-top:5vh;
+  
 }
 .signUp-container>form{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content:space-around;
   align-items: center;
 
    
@@ -175,17 +203,21 @@ cursor: pointer;
  
   
     width:70%;
-    margin-top: 4vh;
-    height:45vh;
+    margin-top: 4.5vmin;
+    height:50vh;
+    margin-bottom: 1vmin;
  
 }
 .signUp-container>form>input{
+  
+    margin-bottom: 2%;
   outline: none;
   border: none;
   background-color:#F2E4D8 ;
   border-bottom: 0.4vh solid #000000 ;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size:3.3vh;
+  font-size:2.3vmax;
+  line-height: 2.8vmax;
   
 
    
@@ -196,26 +228,25 @@ cursor: pointer;
   
     width:95%;
  
-    margin-bottom: 2vh;
-    margin-top: 1vh;
+  
  
 }
 #signUpSubmit, #loginSubmit{
    
-    margin-top: 2vh; 
+    margin-top: 1.5vmin; 
    width: 50vmin;
    height: 13vmin;
     text-align: center;
     font-family: 'Delius Unicase', cursive;
-    font-size: 4.5vmin;
-    background: #3E674F;
-    border: 3px solid #000000;
+    font-size: 4vmin;
+    background: #000000;
+    border: 0.3vw solid #ffffff;
 box-shadow: 1.5vh 1.5vh 1.5vh rgba(0, 0, 0, 0.25);
-border-radius: 8px;
+border-radius: 1.5vmax;
 color: white;
 font-style: normal;
 font-weight: bold;
-text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+text-shadow: 0.1vmax 0.1vmax rgba(0, 0, 0, 0.1);
 cursor: pointer;
 display: flex;
 flex-direction: column;
@@ -223,13 +254,16 @@ justify-content: center;
 align-items: center;
 
 
-}
+    }
 
 .return{
-    height:10vmin;
-    margin-left: 65vw;
-    margin-bottom:10vmin;
+    height:6vmin;
+    position: absolute;
+    top:85vh;
+    right:25vh;
+    
     cursor:pointer;
+
 
 }
 .welcome-container{
@@ -249,7 +283,39 @@ align-items: center;
     font-family: 'Delius Unicase', cursive;
     font-size: 3vmax;
     text-align: center;
-    text-shadow: 3px 3px rgba(0, 0, 0, 0.1);
+    text-shadow: 0.1vmax 0.1vmax rgba(0, 0, 0, 0.1);
+}
+@media (min-width:568px) {
+    .s-pw{
+   
+      
+        top: 48.5%;
+     
+    }
+}
+@media (min-width:768px) {
+    .s-pw{
+   
+      
+        top: 53.5%;
+     
+    }
+}
+@media (min-width:812px) and (orientation:landscape) {
+    .s-pw{
+   
+      
+        top: 49%;
+     
+    }
+}
+@media (min-width:1024px) and (orientation:portrait) {
+    .s-pw{
+   
+      
+        top: 53%;
+     
+    }
 }
 
 

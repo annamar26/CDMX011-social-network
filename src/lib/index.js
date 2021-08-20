@@ -1,6 +1,3 @@
-/* import { home } from './home.js';
-import { signup } from './signup.js'  */
-
 export const fbFunctions = {
 
   userSignup(email, password) {
@@ -10,7 +7,7 @@ export const fbFunctions = {
       .then((userCredential) => {
         console.log('Registro exitoso');
       })
-      .catch(() => { console.log('Error'); });
+      .catch((error) => { console.log('Error'); });
   },
   userLogin(email, password) {
     auth
@@ -69,6 +66,7 @@ export const router = {
     window.history.pushState({},
       pathname,
       window.location.origin + pathname);
+      
   },
 
 };

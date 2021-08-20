@@ -1,31 +1,19 @@
 import { home } from './home.js';
 import signup from './signup.js';
 import login from './login.js';
-import posts from './posts.js';
-/* import signup from './signup.js';
-import login from './login.js';
-import posts from './posts'; */
+import timeline from './timeline.js';
+
+const routes = {
+  '/': home,
+  '/signup': signup,
+  '/login': login,
+  '/timeline': timeline,
+};
 
 window.addEventListener('load', () => {
-  if (window.location.pathname == '/') {
-    home.template();
-  } else if (window.location.pathname == '/login') {
-    login.template();
-  } else if (window.location.pathname == '/signup') {
-    signup.template();
-  } else if (window.location.pathname == '/posts') {
-    posts.template();
-  }
+  routes[window.location.pathname].template();
 });
 
 window.onpopstate = () => {
-  if (window.location.pathname == '/') {
-    home.template();
-  } else if (window.location.pathname == '/login') {
-    login.template();
-  } else if (window.location.pathname == '/signup') {
-    signup.template();
-  } else if (window.location.pathname == '/posts') {
-    posts.template();
-  }
+  routes[window.location.pathname].template();
 };

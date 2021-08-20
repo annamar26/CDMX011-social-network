@@ -33,13 +33,15 @@ export const home = {
 `;
 
     document.querySelector('#root').innerHTML = html;
-    router.onNavigate('/');
-    document.querySelector('#signUpA').addEventListener('click', () => {
+
+    document.querySelector('#signUpA').addEventListener('click', (e) => {
+      e.preventDefault();
       router.onNavigate('/signup');
       signup.template();
     });
 
-    document.querySelector('#loginButton').addEventListener('click', () => {
+    document.querySelector('#loginButton').addEventListener('click', (e) => {
+      e.preventDefault();
       router.onNavigate('/login');
       login.template();
     });

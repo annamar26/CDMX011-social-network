@@ -1,7 +1,8 @@
+/* eslint-disable import/no-cycle */
 import { fbFunctions } from './lib/index.js';
 import { router } from './lib/index.js';
 import { home } from './home.js';
-import posts from './posts.js';
+import timeline from './timeline.js';
 
 const login = {
 
@@ -13,35 +14,46 @@ const login = {
     </nav>
     <div class='signUp-container'>
     <h2>Inicia sesión</h2>
-    <button class='button' id='googleL'><img class='gicon' src='./googleicon.svg'>Inicia sesión con Google</button>
+   
     <form class=form id=loginForm>
 
     <label for='lgEmail'>Email</label>
         <input id='lgEmail' type=email required>
         <label for='lgPassword'>Contraseña</label>
-        <input id='lgPassword' type=password' required>
+        <input id='lgPassword' type='password' required><img id='seeLps' src='ver.svg'>
         <input id='loginSubmit' type=submit value='Iniciar sesión'>
     </form>
+    <img class='div' src='div.svg'>
+    <button class='button' id='googleL'><img class='gicon' src='./googleicon.svg'>Inicia sesión con Google</button>
     <img id='return' class='return'src='./return.svg'>
     </div> `;
-  
-
-
 
     document.querySelector('#root').innerHTML = html;
+
     document.getElementById('googleL').addEventListener('click', (e) => {
+      e.preventDefault();
       fbFunctions.googleUserSignUp(e);
       fbFunctions.comprobar();
-      router.onNavigate('/posts');
-      posts.template();
-
-      document.querySelector('#logout').addEventListener('click', () => {
+      timeline.template();
+      router.onNavigate('/template');
+      document.querySelector('#logout').addEventListener('click', (e) => {
+        e.preventDefault();
         fbFunctions.userLogout();
       });
     });
-    document.getElementById('return').addEventListener('click', () => {
+    document.getElementById('return').addEventListener('click', (e) => {
+      e.preventDefault();
       home.template();
       router.onNavigate('/');
+    });
+    document.querySelector('#seeLps').addEventListener('click', (e) => {
+      e.preventDefault();
+      const tipo = document.getElementById('lgPassword');
+      if (tipo.type == 'password') {
+        tipo.type = 'text';
+      } else {
+        tipo.type = 'password';
+      }
     });
 
     const loginData = document.querySelector('#loginForm');
@@ -51,10 +63,11 @@ const login = {
       const loginPassword = document.querySelector('#lgPassword').value;
       fbFunctions.userLogin(loginEmail, loginPassword);
       fbFunctions.comprobar();
-      router.onNavigate('/posts');
-      posts.template();
+      router.onNavigate('/template');
+      timeline.template();
 
-      document.querySelector('#logout').addEventListener('click', () => {
+      document.querySelector('#logout').addEventListener('click', (e) => {
+        e.preventDefault();
         fbFunctions.userLogout();
       });
     });
