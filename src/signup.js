@@ -18,7 +18,7 @@ const signup = {
     <label for='sgEmail'>Email</label>
     <input id='sgEmail' type=email required>
     <label for='sgPassword'>Contraseña</label>
-    <input id='sgPassword' type='password' required><img class='s-button' src='ver.svg'>
+    <input id='sgPassword' type='password' required><img id='seeBn'class='s-button' src='ver.svg'>
     <p class='warning' id='ms'></p>
     <input id='signUpSubmit' type=submit value='Crear cuenta'>
       </form>

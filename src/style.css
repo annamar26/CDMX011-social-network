@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     overflow-x: hidden;
-     overflow-y: hidden; 
+    overflow-y: hidden; 
 }
 body{
     background-color:  #F2E4D8;
@@ -33,7 +33,9 @@ label{
 }
 
 nav {
-
+    
+    width: 100%;
+position: fixed;
   height: 7vh;
     left: 0px;
     top: 0px;
@@ -45,8 +47,9 @@ nav {
     padding: 2% 2% 2% 2%;
 
 }
+
 li{
-    color: #ffffff;
+    color: #9b9898;
 }
 .button{
     
@@ -71,7 +74,47 @@ justify-content: center;
 align-items: center;
 padding-left: 1.5%;
 
-}.div{
+}
+.timeline{
+
+height:100vh;
+    overflow-y: scroll;
+   
+}.create-post{
+    margin-top:7vh;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+   
+    
+}
+#postForm{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items:center;
+width:80%;
+height:100%
+}
+.posts-container{
+    margin-top:2vh;
+    height:fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+        
+    } 
+    .posts-container>div{
+        margin-top:1vh;
+        height:30vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+            
+        } 
+.div{
     width:50vmin;
 }
 
@@ -80,6 +123,18 @@ padding-left: 1.5%;
 height: 100%;
 
 
+}
+.post-div{
+    
+width: 294px;
+height: 209px;
+left: 35px;
+top: 313px;
+
+background: rgba(251, 251, 251, 0.37);
+border: 1.5px solid #F2E4D8;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 6px;
 }
 .menu{
     color:white;
@@ -167,6 +222,7 @@ right: 16%;
     z-index: 5px;
 }
 .signUp-container {
+    margin-top:7vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -267,6 +323,7 @@ align-items: center;
 
 }
 .welcome-container{
+    margin-top:7vh;
     display: flex;
     flex-direction: column;
     

@@ -35,7 +35,7 @@ const login = {
       fbFunctions.googleUserSignUp(e);
       fbFunctions.comprobar();
       timeline.template();
-      router.onNavigate('/template');
+      router.onNavigate('/timeline');
       document.querySelector('#logout').addEventListener('click', (e) => {
         e.preventDefault();
         fbFunctions.userLogout();
@@ -63,7 +63,7 @@ const login = {
       const loginPassword = document.querySelector('#lgPassword').value;
       fbFunctions.userLogin(loginEmail, loginPassword);
       fbFunctions.comprobar();
-      router.onNavigate('/template');
+      router.onNavigate('/timeline');
       timeline.template();
 
       document.querySelector('#logout').addEventListener('click', (e) => {
