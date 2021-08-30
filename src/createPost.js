@@ -1,6 +1,6 @@
-import { fbFunctions, router } from './lib/index.js';
+import { fbFunctions } from './lib/index.js';
 
-export const post = {
+const makePost = {
 
   template() {
     const html = `     <div class='create-post'>
@@ -21,8 +21,14 @@ export const post = {
       const bookTitle = document.getElementById('title').value;
       const postContent = document.getElementById('content').value;
 
-      fbFunctions.createPost(bookAutor, bookTitle, postContent);
+      fbFunctions.createPost(bookAutor, bookTitle, postContent)
+        .then(() => {
+          console.log('Document successfully written!');
+        })
+        .catch((error) => {
+          console.error('Error writing document: ', error);
+        });
     });
   },
 };
-
+export default makePost

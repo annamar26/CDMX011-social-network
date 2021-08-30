@@ -18,38 +18,42 @@ const login = {
     <form class=form id=loginForm>
 
     <label for='lgEmail'>Email</label>
-        <input id='lgEmail' type=email required>
+        <input id='lgEmail' type='email' required>
         <label for='lgPassword'>Contraseña</label>
         <input id='lgPassword' type='password' required><img id='seeLps' src='ver.svg'>
-        <input id='loginSubmit' type=submit value='Iniciar sesión'>
+        <input id='loginSubmit' type='submit' value='Iniciar sesión'>
+        <p id='errorMessage'></p>
     </form>
     <img class='div' src='div.svg'>
     <button class='button' id='googleL'><img class='gicon' src='./googleicon.svg'>Inicia sesión con Google</button>
     <img id='return' class='return'src='./return.svg'>
     </div> `;
 
-    document.querySelector('#root').innerHTML = html;
+    const rootDiv = document.querySelector('#root');
+    rootDiv.innerHTML = html;
 
     document.getElementById('googleL').addEventListener('click', (e) => {
       e.preventDefault();
-      fbFunctions.googleUserSignUp(e);
-      fbFunctions.comprobar();
-      timeline.template();
-      router.onNavigate('/timeline');
-      document.querySelector('#logout').addEventListener('click', (e) => {
-        e.preventDefault();
-        fbFunctions.userLogout();
-      });
+      fbFunctions.googleUserSignUp(e)
+        .then(() => {
+          console.log('Google singin');
+          fbFunctions.comprobar();
+          timeline.template();
+          router.onNavigate('/timeline');
+        })
+        .catch((error) => { document.getElementById('errorMesagge').innerHTML = error; });
     });
+
     document.getElementById('return').addEventListener('click', (e) => {
       e.preventDefault();
       home.template();
       router.onNavigate('/');
     });
+
     document.querySelector('#seeLps').addEventListener('click', (e) => {
       e.preventDefault();
       const tipo = document.getElementById('lgPassword');
-      if (tipo.type == 'password') {
+      if (tipo.type === 'password') {
         tipo.type = 'text';
       } else {
         tipo.type = 'password';
@@ -61,16 +65,13 @@ const login = {
       e.preventDefault();
       const loginEmail = document.querySelector('#lgEmail').value;
       const loginPassword = document.querySelector('#lgPassword').value;
-      fbFunctions.userLogin(loginEmail, loginPassword);
-      fbFunctions.comprobar();
-      router.onNavigate('/timeline');
-      timeline.template();
-
-      document.querySelector('#logout').addEventListener('click', (e) => {
-        e.preventDefault();
-        fbFunctions.userLogout();
-      });
+      fbFunctions.userLogin(loginEmail, loginPassword).then(() => {
+        router.onNavigate('/timeline');
+        timeline.template();
+      })
+        .catch((error) => { document.getElementById('errorMessage').innerHTML = error; });
     });
+    return rootDiv;
   },
 };
 export default login;
