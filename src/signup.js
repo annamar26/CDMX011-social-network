@@ -39,8 +39,7 @@ const signup = {
         .then(() => {
           console.log('Google singin');
           fbFunctions.comprobar();
-          timeline.template();
-          router.onNavigate('/timeline');
+      
         })
         .catch((error) => { document.querySelector('#errorMessage').innerHTML = error; });
     });
@@ -69,8 +68,7 @@ const signup = {
       const signupPassword = document.querySelector('#sgPassword').value;
       fbFunctions.userSignup(signupEmail, signupPassword).then((user) => {
         console.log(user)
-        router.onNavigate('/timeline');
-        timeline.template();
+       
         console.log('Login exitoso');
         fbFunctions.comprobar();
    

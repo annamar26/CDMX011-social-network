@@ -21,8 +21,9 @@ const login = {
         <input id='lgEmail' type='email' required>
         <label for='lgPassword'>Contraseña</label>
         <input id='lgPassword' type='password' required><img id='seeLps' src='ver.svg'>
-        <input id='loginSubmit' type='submit' value='Iniciar sesión'>
-        <p id='errorMessage'></p>
+         <p class='warning' id='errorMessage1'></p>
+         <input id='loginSubmit' type='submit' value='Iniciar sesión'>
+      
     </form>
     <img class='div' src='div.svg'>
     <button class='button' id='googleL'><img class='gicon' src='./googleicon.svg'>Inicia sesión con Google</button>
@@ -38,10 +39,9 @@ const login = {
         .then(() => {
           console.log('Google singin');
           fbFunctions.comprobar();
-          timeline.template();
-          router.onNavigate('/timeline');
+       
         })
-        .catch((error) => { document.getElementById('errorMesagge').innerHTML = error; });
+        .catch((error) => { document.getElementById('errorMesagge1').innerHTML = error; });
     });
 
     document.getElementById('return').addEventListener('click', (e) => {
@@ -66,10 +66,9 @@ const login = {
       const loginEmail = document.querySelector('#lgEmail').value;
       const loginPassword = document.querySelector('#lgPassword').value;
       fbFunctions.userLogin(loginEmail, loginPassword).then(() => {
-        router.onNavigate('/timeline');
-        timeline.template();
+       fbFunctions.comprobar()
       })
-        .catch((error) => { document.getElementById('errorMessage').innerHTML = error; });
+        .catch((error) => { document.getElementById('errorMessage1').innerHTML = error; });
     });
     return rootDiv;
   },

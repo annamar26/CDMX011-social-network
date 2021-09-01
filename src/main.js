@@ -16,19 +16,33 @@ const routes = {
 };
 
 window.addEventListener('load', () => {
-  routes[window.location.pathname].template();
-  fbFunctions.getUser()
-
-
-
+  if (routes[window.location.pathname] === '/timeline') {
+    timeline.template();
+    fbFunctions.getPosts()
+    fbFunctions.setWelcome()
+ 
+  
+  } else {
+    routes[window.location.pathname].template();
+  }
 });
 
 window.onpopstate = () => {
-  (routes[window.location.pathname]).template();
+  if (routes[window.location.pathname] === '/timeline') {
+    timeline.template();
+    fbFunctions.getPosts()
+    fbFunctions.setWelcome()
+   
+  } else {
+    routes[window.location.pathname].template();
+  }
 };
 
+window.addEventListener('reload', () => {
+  if (routes[window.location.pathname] === '/timeline') {
+    timeline.template();
 
-window.addEventListener('reload', ()=>{
-  fbFunctions.getUser();
-  fbFunctions.comprobar()
-})
+  } else {
+    routes[window.location.pathname].template();
+  }
+});

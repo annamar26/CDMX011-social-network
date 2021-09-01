@@ -19,7 +19,7 @@ label{
     font-family: 'Delius Unicase';
     font-style: normal;
     font-weight: semibold;
-    font-size: 3.3vmin;
+    font-size: 3.2vmin;
 
    
  
@@ -47,10 +47,31 @@ position: fixed;
     padding: 2% 2% 2% 2%;
 
 }
+/* .nav-timeline{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100vw;
+} */
+.icons{
+    position:absolute;
+    display: flex;
+    flex-direction: row;
+justify-content: flex-end;
 
-li{
-    color: #9b9898;
+  
+    height: 90%;
+  width:30%;
+    right: 2%;
+  
 }
+.icon{
+    margin-left: 5%;
+    height:90%; 
+     cursor: pointer;
+}
+
 .button{
     
     margin-top: 3vmin; 
@@ -84,7 +105,7 @@ height:100vh;
     margin-top:7vh;
     display: flex;
     justify-content: center;
-    height: 100vh;
+   
    
     
 }
@@ -106,14 +127,40 @@ height:100%
         
     } 
     .posts-container>div{
+        width:92%;
         margin-top:1vh;
-        height:30vh;
+        height:70vh;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+      
+        background: rgba(251, 251, 251, 0.37);
+border: 1.5px solid #F2E4D8;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 6px;
             
         } 
+        .posts-container>div>h2{
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        text-align: center;
+    margin-top: 4%;}
+    .posts-container>div>h4{
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    margin-top: 2%;
+}
+.posts-container>div>.content{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+text-align: justify;
+height:50%;
+font-size: smaller;
+margin-top:5%;
+}
+.posts-container>div>.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
 .div{
     width:50vmin;
 }
@@ -124,18 +171,7 @@ height: 100%;
 
 
 }
-.post-div{
-    
-width: 294px;
-height: 209px;
-left: 35px;
-top: 313px;
 
-background: rgba(251, 251, 251, 0.37);
-border: 1.5px solid #F2E4D8;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 6px;
-}
 .menu{
     color:white;
     filter: invert(100%);
@@ -148,6 +184,9 @@ border-radius: 6px;
     width:40vmin;
     height: 6vmin;
     cursor: pointer;
+}
+.logo1{
+    margin-top: 5%;
 }
 .secondary-container{
     height: 30vh;
@@ -207,18 +246,18 @@ cursor: pointer;
 }
 .s-button{
    
-    width: 3vmax;
-    position:absolute;
+    width: 2.5vmax;
+    position:fixed;
 right: 16%;
-    top: 51%;
+    top: 48.8%;
     z-index: 5px;
 }
 #seeLps{
        
-    width: 3vmax;
-    position:absolute;
+    width: 2.5vmax;
+    position:fixed;
 right: 16%;
-    top: 46%;
+    top: 42%;
     z-index: 5px;
 }
 .signUp-container {
@@ -231,7 +270,7 @@ right: 16%;
    
 
 }
-.signUp-container>h2{
+.signUp-container>h2, .welcome{
     font-family: 'Delius Unicase';
     font-style: normal;
     font-weight: bold;
@@ -259,8 +298,8 @@ right: 16%;
  
   
     width:70%;
-    margin-top: 4.5vmin;
-    height:50vh;
+    margin-top: 4.2vmin;
+    height:52vh;
     margin-bottom: 1vmin;
  
 }
@@ -273,7 +312,7 @@ right: 16%;
   border-bottom: 0.4vh solid #000000 ;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size:2.3vmax;
-  line-height: 2.8vmax;
+  line-height: 2.7vmax;
   
 
    
@@ -289,7 +328,7 @@ right: 16%;
 }
 #signUpSubmit, #loginSubmit{
    
-    margin-top: 1.5vmin; 
+    margin-top: 1vmin; 
    width: 50vmin;
    height: 13vmin;
     text-align: center;
@@ -311,16 +350,38 @@ align-items: center;
 
 
     }
-
+    .post-header{
+        display: flex;
+        flex-direction: row;
+     height: 12vh;
+        justify-content: space-around;
+        margin-top:5%
+    }
+    .post-header>p{
+        width: 65%;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: left;
+margin-left: 1%;}
+ 
 .return{
-    height:6vmin;
+    height:7vmin;
     position: absolute;
-    top:85vh;
-    right:25vh;
-    
+    top:87vh;
+   
     cursor:pointer;
 
 
+}
+.warning{
+    text-align: center;
+    height:5.5vh;
+    font-size:3.4vmin;
+}
+#errorMesagge1{
+    text-align: center;
+    height:6.5vh;
+    font-size:1vmax;
+ 
 }
 .welcome-container{
     margin-top:7vh;
@@ -343,34 +404,52 @@ align-items: center;
     text-shadow: 0.1vmax 0.1vmax rgba(0, 0, 0, 0.1);
 }
 @media (min-width:568px) {
-    .s-pw{
+    .s-button{
    
       
-        top: 48.5%;
+        top: 46.9%;
      
     }
+    .return{
+       
+        right:15vw;
+       
+        
+    
+    
+    }
+   
 }
+@media (min-width:640px) and (orientation:landscape) {
+.posts-container{
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    grid-auto-rows: minmax(10vw, auto);
+    margin-left:3vmax;
+}
+.posts-container>div{
+height: 75vh;
+}}
 @media (min-width:768px) {
-    .s-pw{
-   
+    .s-button{
       
-        top: 53.5%;
+        top: 51.5%;
      
     }
 }
-@media (min-width:812px) and (orientation:landscape) {
-    .s-pw{
+@media (min-width:812px) {
+    .s-button{
    
       
-        top: 49%;
+        top: 47%;
      
     }
 }
 @media (min-width:1024px) and (orientation:portrait) {
-    .s-pw{
+    .s-button{
    
       
-        top: 53%;
+        top: 51%;
      
     }
 }

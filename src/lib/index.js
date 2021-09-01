@@ -1,5 +1,14 @@
 import { postConteiner } from '../postsRender.js';
+import timeline from '../timeline.js';
 
+export const router = {
+  onNavigate(pathname) {
+    window.history.pushState({},
+      pathname,
+      window.location.origin + pathname);
+  },
+
+};
 export const fbFunctions = {
   userSignup(email, password) {
     return auth.createUserWithEmailAndPassword(email, password);
@@ -15,10 +24,16 @@ export const fbFunctions = {
     return auth.signInWithPopup(provider);
   },
   getUser() {
-    console.log(auth.currentUser)
     return auth.currentUser;
   },
- /* addUserDisplayName(userName) {
+  setWelcome() {
+    return auth.onAuthStateChanged((user) => {
+      if (user) {
+        timeline.welcome();
+      }
+    });
+  },
+  /* addUserDisplayName(userName) {
     const user = firebase.auth().currentUser;
 
     user.updateProfile({
@@ -28,11 +43,22 @@ export const fbFunctions = {
     });
 console.log(user);
     return user;
-  },*/
+  }, */
 
   // posts
 
   comprobar() {
+    return auth.onAuthStateChanged((user) => {
+      if (user) {
+        router.onNavigate('/timeline');
+        timeline.template();
+
+      /*   this.getUser(); */
+        /*      this.getPosts(); */
+      }
+    });
+  },
+  getPosts() {
     return auth.onAuthStateChanged((user) => {
       if (user) {
         fs.collection('publicaciones')
@@ -40,10 +66,9 @@ console.log(user);
 
           .then((snapshot) => {
             postConteiner.setupPosts(snapshot.docs);
-                        });
+          });
       } else {
         postConteiner.setupPosts([]);
-
       }
     });
   },
@@ -59,19 +84,14 @@ console.log(user);
     });
   },
 
-  createLike(idPost, nuevoArrayLikes) {
-    return fs.collection('publicaciones').doc(idPost).update({
+  createLike(idPost, currentUser) {
+    const post = fs.collection('publicaciones').doc(idPost);
 
-      likes: nuevoArrayLikes,
+    return post.update({
+      likes: firebase.firestore.FieldValue.arrayUnion(currentUser),
     });
   },
-};
-
-export const router = {
-  onNavigate(pathname) {
-    window.history.pushState({},
-      pathname,
-      window.location.origin + pathname);
+  deletePost(idPost) {
+    return fs.collection('publicaciones').doc(idPost).delete();
   },
-
 };

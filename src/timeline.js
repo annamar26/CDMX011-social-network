@@ -3,23 +3,22 @@ import makePost from './createPost.js';
 
 const timeline = {
   template() {
-    const user = fbFunctions.getUser();
-    const html = `<nav>
-    <div>
-    <img class='logo' src='logo.png'>
-    <li id='logout'>Logout</li>
+    const html = `<nav class='nav-timeline'>
+    <div >
+    <img class='logo1 logo' src='logo.png'> </div>
+    <div class='icons'>
+    <img class='profile-icon icon' src='profileicon.svg'>
+    <img class='edit-icon icon' id='createPost' src='editicon.svg'>
+    <img class='logout-icon icon' id='logout' src='logout.svg'>
+   
      </div>
-     <div>
-
-    <li id='logout'>Perfil de usuario</li>
-    <li id='logout'>Crear una publicacion</li>
-    </div>
+  
     </nav>
    <div class='timeline'>
  
 <div class='create-post'>
-<button class='button' id='createPost'>Crea una publicación</button>  
-<p id='welcome'>${user.displayName ? user.displayName : user.email} </p> </div>
+
+<p class='welcome' id='welcome'></p> </div>
 
     <div id='postCointainer' class='posts-container'></div>
     
@@ -27,14 +26,16 @@ const timeline = {
        
        </div>`;
 
-    const rootDiv = document.querySelector('#root')
+    const rootDiv = document.querySelector('#root');
     rootDiv.innerHTML = html;
-    fbFunctions.comprobar();
-   fbFunctions.getUser()
+ fbFunctions.getPosts();
+ fbFunctions.setWelcome();
+
+ 
 
     document.getElementById('logout').addEventListener('click', (e) => {
       e.preventDefault();
-      fbFunctions.userLogout().then(() => { rootDiv.querySelector('p').innerHTML = 'Logueate para ver los datos'});
+      fbFunctions.userLogout().then(() => { rootDiv.querySelector('p').innerHTML = 'Logueate para ver los datos'; });
     });
 
     document.querySelector('#createPost').addEventListener('click', (e) => {
@@ -42,8 +43,15 @@ const timeline = {
       router.onNavigate('/createPost');
       makePost.template();
     });
- return rootDiv },
 
+    return rootDiv;
+  },
+  welcome() {
+    const user = fbFunctions.getUser();
+    const welcome = document.querySelector('#welcome');
+    welcome.innerHTML = `Bienvenid@ ${user.displayName ? user.displayName : user.email}`;
+    return welcome;
+  },
 };
 
 /* function createPost() {
