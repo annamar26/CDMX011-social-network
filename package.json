@@ -8,6 +8,11 @@
     "firebase",
     "jest"
   ],
+  "homepage": "https://annamar26.github.io/CDMX011-social.network",
+  "repository": {
+    "type":"git",
+    "url": "https://github.com/annamar26/CDMX011-social-network.git"
+  },
   "license": "MIT",
   "scripts": {
     "htmlhint": "htmlhint dist/*.html ",
@@ -15,7 +20,11 @@
     "stylelint": "stylelint --aei src/**/*.css",
     "pretest": "npm run htmlhint && npm run eslint && npm run stylelint",
     "test": "jest --coverage",
-    "start": "serve -s src/"
+    "start": "serve -s src/",
+    "predeploy": "npm run build",
+    "deploy":  "gh-pages -d build",
+  
+   
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
@@ -25,6 +34,7 @@
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jest": "^24.1.0",
+    "gh-pages": "^3.2.3",
     "htmlhint": "^0.15.1",
     "jest": "^27.0.1",
     "regenerator-runtime": "^0.13.1",
