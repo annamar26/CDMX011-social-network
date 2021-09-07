@@ -12,16 +12,17 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Delius+Unicase:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" type="text/css" />
-    <link rel="shortcut icon" href="favicon.png">
+    <link rel="shortcut icon" href="./icons&img/favicon.png">
     <title>BookLovers</title>
-    <script src='home.js' type='module'></script>
-    <script src='signup.js' type='module'></script>
-    <script src='login.js' type='module'></script>
-    <script src='timeline.js'type='module'></script>
-    <script src='createPost.js'type='module'></script>
-    <script src='./lib/index.js'type='module'></script>
-    <script src='./postsRender.js'type='module'></script>
-    <script src='./setprofile.js'type='module'></script>
+    <script src='./components/home.js' type='module'></script>
+    <script src='./components/signup.js' type='module'></script>
+    <script src='./components/login.js' type='module'></script>
+    <script src='./components/timeline.js'type='module'></script>
+    <script src='./components/createPost.js'type='module'></script>
+    <script src='./index.js'type='module'></script>
+    <script src='./components/postsRender.js'type='module'></script>
+    <script src='./components/setprofile.js'type='module'></script>
+    
 
   
    
@@ -43,6 +44,7 @@
 
     <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-storage.js"></script>
 
     <script>
         // Your web app"s Firebase configuration
@@ -60,6 +62,9 @@
         firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth();
         const fs= firebase.firestore();
+        const storageRef = firebase.storage()
+      
+       
     </script>
     <script type="module" src="main.js"></script>
    

@@ -1,48 +1,89 @@
-import { home } from './home.js';
-import signup from './signup.js';
-import login from './login.js';
-import timeline from './timeline.js';
-import makePost from './createPost.js';
-import setProfile from './setprofile.js';
-import { fbFunctions } from './lib/index.js';
+/* eslint-disable no-unused-expressions */
+import { home } from './components/home.js';
+import signup from './components/signup.js';
+import login from './components/login.js';
+import timeline from './components/timeline.js';
+import makePost from './components/createPost.js';
+import setProfile from './components/setprofile.js';
+import { fbFunctions } from './index.js';
 
 const routes = {
   '/': home,
   '/signup': signup,
   '/login': login,
   '/timeline': timeline,
-  '/createPost': makePost,
-  '/setprofile': setProfile,
+  '/createpost': makePost,
+  '/profile': setProfile,
 };
 
 window.addEventListener('load', () => {
-  if (routes[window.location.pathname] === '/timeline') {
-    timeline.template();
-    fbFunctions.getPosts()
-    fbFunctions.setWelcome()
- 
-  
-  } else {
-    routes[window.location.pathname].template();
+  switch (routes[window.location.pathname]) {
+    case '/timeline':
+      fbFunctions.comprobar();
+      timeline.template();
+      fbFunctions.getPosts();
+      fbFunctions.setWelcome();
+
+      break;
+    case '/profile':
+     
+      setProfile.template();
+      fbFunctions.getCurrentUserPosts();
+      fbFunctions.setDataProfile()
+
+      break;
+    case '/createpost':
+      fbFunctions.comprobar();
+      makePost.template();
+      break;
+    default: routes[window.location.pathname].template();
   }
 });
 
 window.onpopstate = () => {
-  if (routes[window.location.pathname] === '/timeline') {
-    timeline.template();
-    fbFunctions.getPosts()
-    fbFunctions.setWelcome()
-   
-  } else {
-    routes[window.location.pathname].template();
+  switch (routes[window.location.pathname]) {
+    case '/timeline':
+      fbFunctions.comprobar();
+      timeline.template();
+      fbFunctions.getPosts();
+      fbFunctions.setWelcome();
+
+      break;
+    case '/profile':
+
+      setProfile.template();
+      fbFunctions.getCurrentUserPosts();
+      fbFunctions.setDataProfile()
+
+      break;
+    case '/createpost':
+      fbFunctions.comprobar();
+      makePost.template();
+      break;
+    default: routes[window.location.pathname].template();
   }
 };
 
 window.addEventListener('reload', () => {
-  if (routes[window.location.pathname] === '/timeline') {
-    timeline.template();
+  switch (routes[window.location.pathname]) {
+    case '/timeline':
+      fbFunctions.comprobar();
+      timeline.template();
+      fbFunctions.getPosts();
+      fbFunctions.setWelcome();
 
-  } else {
-    routes[window.location.pathname].template();
+      break;
+    case '/profile':
+
+      setProfile.template();
+      fbFunctions.getCurrentUserPosts();
+      fbFunctions.setDataProfile();
+
+      break;
+    case '/createpost':
+      fbFunctions.comprobar();
+      makePost.template();
+      break;
+    default: routes[window.location.pathname].template();
   }
 });

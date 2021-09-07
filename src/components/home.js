@@ -1,12 +1,13 @@
-import { router } from './lib/index.js';
+/* eslint-disable import/no-cycle */
+import { router } from '../index.js';
 import signup from './signup.js';
 import login from './login.js';
 
 export const home = {
   template: () => {
     const html = `<nav>
-    <img class='logo' src='logo.png'>
-    <img class='menu' src='menu.svg'/>
+    <img class='logo' src='./icons&img/logo.png'>
+    <img class='menu' src='./icons&img/menu.svg'/>
     
     </nav>
     <main>
@@ -29,7 +30,7 @@ export const home = {
 
 
 </main>
-<footer></footer>
+
 `;
 
     document.querySelector('#root').innerHTML = html;

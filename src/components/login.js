@@ -1,6 +1,6 @@
 /* eslint-disable import/no-cycle */
-import { fbFunctions } from './lib/index.js';
-import { router } from './lib/index.js';
+import { fbFunctions } from '../index.js';
+import { router } from '../index.js';
 import { home } from './home.js';
 import timeline from './timeline.js';
 
@@ -8,7 +8,7 @@ const login = {
 
   template() {
     const html = `<nav>
-    <img class='logo' src='logo.png'>
+    <img class='logo' src='./icons&img/logo.png'>
    
     
     </nav>
@@ -20,14 +20,14 @@ const login = {
     <label for='lgEmail'>Email</label>
         <input id='lgEmail' type='email' required>
         <label for='lgPassword'>Contraseña</label>
-        <input id='lgPassword' type='password' required><img id='seeLps' src='ver.svg'>
+        <input id='lgPassword' type='password' required><img id='seeLps' src='./icons&img/ver.svg'>
          <p class='warning' id='errorMessage1'></p>
          <input id='loginSubmit' type='submit' value='Iniciar sesión'>
       
     </form>
-    <img class='div' src='div.svg'>
-    <button class='button' id='googleL'><img class='gicon' src='./googleicon.svg'>Inicia sesión con Google</button>
-    <img id='return' class='return'src='./return.svg'>
+    <img class='div' src='./icons&img/div.svg'>
+    <button class='button' id='googleL'><img class='gicon' src='./icons&img/googleicon.svg'>Inicia sesión con Google</button>
+    <img id='return' class='return'src='./icons&img/return.svg'>
     </div> `;
 
     const rootDiv = document.querySelector('#root');
@@ -38,8 +38,9 @@ const login = {
       fbFunctions.googleUserSignUp(e)
         .then(() => {
           console.log('Google singin');
-          fbFunctions.comprobar();
-       
+          timeline.template();
+          router.onNavigate('/timeline');
+          fbFunctions.getPosts();
         })
         .catch((error) => { document.getElementById('errorMesagge1').innerHTML = error; });
     });
@@ -66,7 +67,10 @@ const login = {
       const loginEmail = document.querySelector('#lgEmail').value;
       const loginPassword = document.querySelector('#lgPassword').value;
       fbFunctions.userLogin(loginEmail, loginPassword).then(() => {
-       fbFunctions.comprobar()
+        console.log('Login exitoso');
+        timeline.template();
+        router.onNavigate('/timeline');
+        fbFunctions.getPosts();
       })
         .catch((error) => { document.getElementById('errorMessage1').innerHTML = error; });
     });
