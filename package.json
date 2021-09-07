@@ -10,7 +10,7 @@
   ],
   "homepage": "https://annamar26.github.io/CDMX011-social.network",
   "repository": {
-    "type":"git",
+    "type": "git",
     "url": "https://github.com/annamar26/CDMX011-social-network.git"
   },
   "license": "MIT",
@@ -22,9 +22,7 @@
     "test": "jest --coverage",
     "start": "serve -s src/",
     "predeploy": "npm run build",
-    "deploy":  "gh-pages -d build",
-  
-   
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
