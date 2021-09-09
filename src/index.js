@@ -40,7 +40,7 @@ export const fbFunctions = {
     return storageRef.ref(`images/${name}`).getDownloadURL();
   },
   pushNewPhoto(photo, name) {
-    return storageRef.ref(`/images/${name}`).put(photo).then((snapshot) => {
+    return storageRef.ref(`/images/${name}`).put(photo).then(() => {
       console.log('Uploaded a blob or file!');
     });
   },

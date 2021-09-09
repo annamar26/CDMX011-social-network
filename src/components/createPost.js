@@ -22,7 +22,7 @@ const makePost = {
 
     document.querySelector('#root').innerHTML = html;
     fbFunctions.setWelcome();
-    fbFunctions.comprobar()
+    fbFunctions.comprobar();
     const postCreated = document.querySelector('#postForm');
     postCreated.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -35,7 +35,7 @@ const makePost = {
           console.log('Document successfully written!');
           fbFunctions.getPosts();
           router.onNavigate('/timeline');
-          timeline.template()
+          timeline.template();
         })
         .catch((error) => {
           console.error('Error writing document: ', error);
@@ -57,4 +57,4 @@ const makePost = {
   },
 
 };
-export default makePost
+export default makePost;

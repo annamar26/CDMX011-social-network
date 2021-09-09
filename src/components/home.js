@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 import { router } from '../index.js';
 import signup from './signup.js';
 import login from './login.js';

@@ -1,4 +1,4 @@
-import { fbFunctions, router } from '../index.js';
+import { fbFunctions } from '../index.js';
 import timeline from './timeline.js';
 
 export const postConteiner = {
@@ -12,15 +12,16 @@ export const postConteiner = {
     if (data.length) {
       return data.forEach((doc) => {
         const publicaciones = doc.data();
+        postConteiner.userDataInPost(publicaciones);
         const date = publicaciones.fecha.toDate().toLocaleString();
 
         const li = `
          <div class='post-div'>
-         <div class='post-header'>
-         <div class='div-user'><img class='photo-user user-post' src='${publicaciones.userphoto ? publicaciones.userphoto : './icons&img/profileicon.svg'}'><p class='user'>${publicaciones.user}</p></div>
-         <div class='fecha'>
+         <div id='user' class='post-header'>
+         
+        
+         </div> <div class='fecha'>
          <p >${date}</p> </div>
-         </div>
          <div class='post-autor'>
           <h2>${publicaciones.title} </h2> <h4> de ${publicaciones.autor}</h4></div>
           <div class='content'>
@@ -165,6 +166,26 @@ export const postConteiner = {
     html = '';
     postContent.innerHTML = html;
     return postContent;
+  },
+  userDataInPost(dataPost) {
+    fs.collection('users').where('uid', '==', dataPost.uid).get()
+      .then((snapshot) => {
+        if (snapshot.docs[0].data().uid === dataPost.uid); {
+          const userPost = snapshot.docs[0].data();
+          console.log(snapshot.docs[0]);
+          console.log(snapshot.docs[0].data());
+          console.log(snapshot.docs[0].data().displayName);
+
+          let content = '';
+          const li = `<div class='div-user'><img class='photo-user user-post' src='${userPost.photoURL ? userPost.photoURL : './icons&img/profileicon.svg'}'><p class='user'>${userPost.displayName ? userPost.displayName : userPost.email}</p></div>
+`;
+          const postHeader = document.getElementById('user');
+          console.log(postHeader);
+          content += li;
+          postHeader.innerHTML = content;
+          return postHeader;
+        }
+      });
   },
 
 };

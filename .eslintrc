@@ -27,6 +27,12 @@
     "jest/no-identical-title": "error",
     "jest/prefer-to-have-length": "warn",
     "jest/valid-expect": "error",
-    "jest/no-undef": 0
+    "jest/no-undef": 0,
+    "import/no-cycle": 0,
+    "no-undef": 0,
+    "no-restricted-syntax": 0,
+    "no-loop-func": 0,
+    "no-restricted-globals":0,
+    "no-shadow":0,
   }
 }

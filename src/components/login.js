@@ -1,6 +1,6 @@
 /* eslint-disable import/no-cycle */
-import { fbFunctions } from '../index.js';
-import { router } from '../index.js';
+import { fbFunctions, router } from '../index.js';
+
 import { home } from './home.js';
 import timeline from './timeline.js';
 
