@@ -1,8 +1,3 @@
-/* eslint-disable no-inner-declarations */
-/* eslint-disable no-loop-func */
-/* eslint-disable no-undef */
-/* eslint-disable no-restricted-syntax */
-
 import { fbFunctions, router } from '../index.js';
 import timeline from './timeline.js';
 
@@ -21,7 +16,6 @@ export const postConteiner = {
 
         const li = `
          <div class='post-div'>
-
          <div class='post-header'>
          <div class='div-user'><img class='photo-user user-post' src='${publicaciones.userphoto ? publicaciones.userphoto : './icons&img/profileicon.svg'}'><p class='user'>${publicaciones.user}</p></div>
          <div class='fecha'>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Delius+Unicase:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="shortcut icon" href="./icons&img/favicon.png">
+    <title>BookLovers</title>
+    <script src='./components/home.js' type='module'></script>
+    <script src='./components/signup.js' type='module'></script>
+    <script src='./components/login.js' type='module'></script>
+    <script src='./components/timeline.js'type='module'></script>
+    <script src='./components/createPost.js'type='module'></script>
+    <script src='./index.js'type='module'></script>
+    <script src='./components/postsRender.js'type='module'></script>
+    <script src='./components/setprofile.js'type='module'></script>
+    
+
+  
+   
+
+</head>
+
+
+<body>
+
+    <div id="root">
+
+    </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-storage.js"></script>
+
+    <script>
+        // Your web app"s Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyBlbNtRFxHJ05DSES1D3BFnEt6-fw3AJIw",
+            authDomain: "booklovers-98b5c.firebaseapp.com",
+            projectId: "booklovers-98b5c",
+            storageBucket: "booklovers-98b5c.appspot.com",
+            messagingSenderId: "124002804232",
+            appId: "1:124002804232:web:544f81a8e647c65013a7bd",
+            measurementId: "G-ETKJ7H1W84"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const fs= firebase.firestore();
+        const storageRef = firebase.storage()
+      
+       
+    </script>
+    <script type="module" src="main.js"></script>
+   
+   
+</body>
+
+</html>
