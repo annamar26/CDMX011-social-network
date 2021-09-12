@@ -61,10 +61,11 @@ footer{
 .icons {
     position: absolute;
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-start;
+    flex-direction: row;
+    justify-content: center;
+    right: 1vh;
     height: 90%;
-    width: 96%;
+  
 
 }
 
@@ -95,6 +96,23 @@ footer{
     justify-content: center;
     align-items: center;
     padding-left: 1.5%;
+}
+.nameInWelcome{
+   
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: right;
+    color: ivory;
+    font-family: 'Delius Unicase', cursive;
+    font-size: 3vmin;
+    font-weight: bold;
+    text-shadow: 0.1vmax 0.1vmax rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+
+}
+.nameInWelcome>p{
+    margin-right: 1vh;
 }
 
 .timeline {
@@ -191,7 +209,7 @@ footer{
 }
 
 
-.create-post>form>h3{
+.create-post>form>h3, .instruccion{
     font-family: 'Delius Unicase', cursive;
     font-style: normal;
     font-weight: bold;
@@ -466,7 +484,7 @@ justify-content: center;
     width: 2.5vmax;
     position: fixed;
     right: 16%;
-    top: 50.7%;
+    top: 45.9%;
     z-index: 5px;
 }
 
@@ -584,7 +602,7 @@ justify-content: center;
 }
 @media (min-width:375px) {
     .s-button {
-        top: 50.9%;
+        top: 45.7%;
     }
     .content-text{
        
@@ -595,7 +613,7 @@ justify-content: center;
 }
 @media (min-width:414px) {
     .s-button {
-        top: 50.9%;
+        top: 45.9%;
     }
     .content-text{
        
@@ -606,7 +624,7 @@ justify-content: center;
 }
 @media (min-width:488px) {
     .s-button {
-        top: 49.9%;
+        top: 45.9%;
     }
     .return {
         right: 15vw;
@@ -617,11 +635,15 @@ justify-content: center;
           
             
         }
+        #seeLps{
+            top: 45.9%;
+      
+    }
 }
 
 @media (min-width:596px){
     .s-button {
-        top: 51.9%;
+        top: 46.9%;
     }
     .content-text{
        
@@ -629,8 +651,10 @@ justify-content: center;
         
           
       }
+      #seeLps{
+        top: 47.9%;
   
-}
+}}
 @media (min-width:638px){
     .content-text{
        
@@ -642,14 +666,14 @@ justify-content: center;
         top: 45.5%;
     }
     .s-button {
-        top: 50.5%;
+        top: 45.5%;
     }
 }
  
 
 @media (min-width:768px) {
     .s-button {
-        top: 53.5%;
+        top: 48.5%;
     }
     .content-text{
        
@@ -664,7 +688,7 @@ justify-content: center;
 
 @media (min-width:812px) {
     .s-button {
-        top: 50%;
+        top: 45%;
     }
 
    
@@ -691,6 +715,6 @@ justify-content: center;
             
         }
         #seeLps{
-            top: 48.5%;
+            top: 43.5%;
         }
 }

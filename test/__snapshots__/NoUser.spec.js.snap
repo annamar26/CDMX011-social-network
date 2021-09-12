@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NoUser should render NoUser page 1`] = `
+"() =&gt; {
+  /* istanbul ignore next */
+  cov_1o4cguzn4k().f[0]++;
+  const conteiner =
+  /* istanbul ignore next */
+  (cov_1o4cguzn4k().s[1]++, document.createElement('div'));
+  const html =
+  /* istanbul ignore next */
+  (cov_1o4cguzn4k().s[2]++, \`&lt;nav&gt;
+      &lt;img class='logo' src='./icons&amp;img/logo.png'&gt;
+     
+      
+      &lt;/nav&gt;
+      &lt;div class='noUser-view'&gt;
+      &lt;h2&gt;Debes iniciar sesion para ver el contenido de la pagina&lt;/h2&gt;
+      &lt;/div&gt;\`);
+
+  /* istanbul ignore next */
+  cov_1o4cguzn4k().s[3]++;
+  conteiner.innerHTML = html;
+
+  /* istanbul ignore next */
+  cov_1o4cguzn4k().s[4]++;
+  return conteiner;
+}"
+`;

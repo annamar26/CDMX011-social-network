@@ -1,89 +1,48 @@
-/* eslint-disable no-unused-expressions */
-import { home } from './components/home.js';
-import signup from './components/signup.js';
-import login from './components/login.js';
-import timeline from './components/timeline.js';
-import makePost from './components/createPost.js';
-import setProfile from './components/setprofile.js';
-import { fbFunctions } from './index.js';
+import { dispatchRoute, onNavigate } from './routes.js';
+import { fbFunctions } from './firebaseClient.js';
 
-const routes = {
-  '/': home,
-  '/signup': signup,
-  '/login': login,
-  '/timeline': timeline,
-  '/createpost': makePost,
-  '/profile': setProfile,
+export const setProfile = () => {
+  const photo = document.getElementById('profileImage');
+  const name = document.getElementById('Nombre');
+  const email = document.getElementById('Email');
+  /*   const postContent = document.getElementById('content-input').value; */
+  photo.src = fbFunctions.getUser() ? fbFunctions.getUser().photoURL === null ? '../icons&img/profileicon.svg' : fbFunctions.getUser().photoURL : null;
+  email.value = fbFunctions.getUser() ? fbFunctions.getUser().email : null;
+  name.value = fbFunctions.getUser() ? fbFunctions.getUser().displayName : null;
+};
+
+export const welcome = () => {
+  const user = fbFunctions.getUser();
+  const welcome = document.querySelector('#profile');
+  console.log(user.photoURL);
+  if (user.photoURL != null) {
+    welcome.innerHTML = `<div class='nameInWelcome'><img class='profile-icon photo-user' id='user-edit' src='${user.photoURL}'><p>Perfil</p></div>`;
+  } else {
+    welcome.innerHTML = '<div class="nameInWelcome"><img class="icon profile-icon"id="user-edit" src="./icons&img/profileicon.svg"><p>Perfil</p></div>';
+  }
+  welcome.addEventListener('click', () => {
+    onNavigate('/profile');
+    setProfile();
+  });
+
+  console.log(welcome);
+  return welcome;
+};
+
+const logoReturn = () => {
+  const logo = document.querySelector('.logo');
+  console.log(logo)
+  logo.addEventListener('click', () => {
+    onNavigate('/');
+  });
 };
 
 window.addEventListener('load', () => {
-  switch (routes[window.location.pathname]) {
-    case '/timeline':
-      fbFunctions.comprobar();
-      timeline.template();
-      fbFunctions.getPosts();
-      fbFunctions.setWelcome();
-
-      break;
-    case '/profile':
-
-      setProfile.template();
-      fbFunctions.getCurrentUserPosts();
-      fbFunctions.setDataProfile();
-
-      break;
-    case '/createpost':
-      fbFunctions.comprobar();
-      makePost.template();
-      break;
-    default: routes[window.location.pathname].template();
-  }
+  dispatchRoute(window.location.pathname);
+  logoReturn()
 });
 
 window.onpopstate = () => {
-  switch (routes[window.location.pathname]) {
-    case '/timeline':
-      fbFunctions.comprobar();
-      timeline.template();
-      fbFunctions.getPosts();
-      fbFunctions.setWelcome();
-
-      break;
-    case '/profile':
-
-      setProfile.template();
-      fbFunctions.getCurrentUserPosts();
-      fbFunctions.setDataProfile();
-
-      break;
-    case '/createpost':
-      fbFunctions.comprobar();
-      makePost.template();
-      break;
-    default: routes[window.location.pathname].template();
-  }
+  dispatchRoute(window.location.pathname);
+  logoReturn()
 };
-
-window.addEventListener('reload', () => {
-  switch (routes[window.location.pathname]) {
-    case '/timeline':
-      fbFunctions.comprobar();
-      timeline.template();
-      fbFunctions.getPosts();
-      fbFunctions.setWelcome();
-
-      break;
-    case '/profile':
-
-      setProfile.template();
-      fbFunctions.getCurrentUserPosts();
-      fbFunctions.setDataProfile();
-
-      break;
-    case '/createpost':
-      fbFunctions.comprobar();
-      makePost.template();
-      break;
-    default: routes[window.location.pathname].template();
-  }
-});

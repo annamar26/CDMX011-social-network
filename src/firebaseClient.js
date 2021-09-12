@@ -1,18 +1,10 @@
-/* eslint-disable no-else-return */
-import noUser from './components/noUser.js';
-import { postConteiner } from './components/postsRender.js';
-import setProfile from './components/setprofile.js';
+/* eslint-disable no-unused-expressions */
+import noUser from './components/NoUser.js';
+import { setUpPosts } from './components/PostsRender.js';
+import { setProfile, welcome } from './main.js';
+import { onNavigate } from './routes.js';
+import { render } from './utils.js';
 
-import timeline from './components/timeline.js';
-
-export const router = {
-  onNavigate(pathname) {
-    window.history.pushState({},
-      pathname,
-      window.location.origin + pathname);
-  },
-
-};
 export const fbFunctions = {
   userSignup(email, password) {
     return auth.createUserWithEmailAndPassword(email, password);
@@ -33,22 +25,15 @@ export const fbFunctions = {
   setDataProfile() {
     return auth.onAuthStateChanged((user) => {
       if (user) {
-        setProfile.setProfile();
+        setProfile();
       }
     });
   },
-  /* getNewPhoto(name) {
-    return storageRef.ref(`images/ ${name})`).getDownloadURL()
-      .then((url) => {
-        this.getUser().updateProfile({
-          photoURL: url,
-        });
-      }).catch((error) => {
-        // Handle any errors
-      });
-  }, */
-  setNewPhoto(photo) {
-    return storageRef.ref('/images').put(photo).then((snapshot) => {
+  pullNewPhoto(name) {
+    return storageRef.ref(`images/${name}`).getDownloadURL();
+  },
+  pushNewPhoto(photo, name) {
+    return storageRef.ref(`/images/${name}`).put(photo).then(() => {
       console.log('Uploaded a blob or file!');
     });
   },
@@ -56,7 +41,7 @@ export const fbFunctions = {
   setWelcome() {
     return auth.onAuthStateChanged((user) => {
       if (user) {
-        timeline.welcome();
+        welcome();
       }
     });
   },
@@ -64,19 +49,17 @@ export const fbFunctions = {
     const user = this.getUser();
     if (user.displayName === null) {
       return user.email;
-    } else {
-      return user.displayName;
     }
+    return user.displayName;
   },
   setPhotoInPost() {
     const user = this.getUser();
     if (user.photoURL != null) {
       return user.photoURL;
-    } else {
-      return null;
     }
+    return null;
   },
-  updateProfile(name, correo) {
+  updateStringsProfile(name, correo) {
     const user = firebase.auth().currentUser;
 
     return user.updateProfile({
@@ -85,10 +68,30 @@ export const fbFunctions = {
 
     });
   },
+  updateUserDoc(name, correo, photo) {
+    const user = fs.collection('users').doc(this.getUser().uid);
+
+    return user.update({
+      displayName: name,
+      email: correo,
+      photoURL: photo,
+
+    });
+  },
+  updatePhotoProfile(photo) {
+    const user = firebase.auth().currentUser;
+
+    return user.updateProfile({
+      photoURL: photo,
+
+    });
+  },
   comprobar() {
     return auth.onAuthStateChanged((user) => {
       if (!user) {
-        noUser.template();
+        const root = document.getElementById('root');
+
+        render(root, noUser());
       }
     });
   },
@@ -99,10 +102,10 @@ export const fbFunctions = {
           .get()
 
           .then((snapshot) => {
-            postConteiner.setupPosts(snapshot.docs);
+            setUpPosts(snapshot.docs);
           });
       } else {
-        postConteiner.setupPosts([]);
+        setUpPosts([]);
       }
     });
   },
@@ -114,11 +117,11 @@ export const fbFunctions = {
           .get()
 
           .then((snapshot) => {
-            postConteiner.setupPosts(snapshot.docs);
+            setUpPosts(snapshot.docs);
             console.log(snapshot.docs);
           });
       } else {
-        postConteiner.setupPosts([]);
+        setUpPosts([]);
       }
     });
   },
@@ -170,5 +173,33 @@ export const fbFunctions = {
     return post.update({
       likes: firebase.firestore.FieldValue.arrayRemove(currentUser),
     });
+  },
+  userPost(uid) {
+    return fs.collection('users').doc(uid).get();
+  },
+  createUserDoc() {
+    return fs.collection('users').doc(fbFunctions.getUser().uid)
+
+      .get().then((doc) => {
+        if (doc.exists) {
+          console.log('Document data:', doc.data());
+        } else {
+          fs.collection('users').doc(fbFunctions.getUser().uid).set({
+            displayName: fbFunctions.getUser().displayName,
+            photoURL: fbFunctions.getUser().photoURL,
+            email: fbFunctions.getUser().email,
+            uid: fbFunctions.getUser().uid,
+          })
+            .then(() => {
+              console.log('Document successfully written!');
+            })
+            .catch((error) => {
+              console.error('Error writing document: ', error);
+            });
+        }
+      })
+      .catch((error) => {
+        console.log('Error getting document:', error);
+      });
   },
 };

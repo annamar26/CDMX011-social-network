@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home should render Home page 1`] = `
+<div
+  id="root"
+>
+  () =&gt; {
+  /* istanbul ignore next */
+  cov_19bg1jmdm3().f[0]++;
+  const conteiner =
+  /* istanbul ignore next */
+  (cov_19bg1jmdm3().s[1]++, document.createElement('div'));
+  const html =
+  /* istanbul ignore next */
+  (cov_19bg1jmdm3().s[2]++, \`&lt;nav&gt;
+    &lt;img class='logo' src='./icons&img/logo.png'&gt;
+    &lt;img class='menu' src='./icons&img/menu.svg'/&gt;
+    &lt;/nav&gt;
+
+    &lt;main&gt;
+    &lt;div class='main-container'&gt;
+
+    &lt;div class='welcome-container'&gt;
+    &lt;h1&gt;La comunidad más grande de lectores&lt;/h1&gt;
+    &lt;/div&gt;
+    
+    &lt;div class='secondary-container'&gt;
+    &lt;input class='login-button' id='loginButton' type='button' value='Inicia sesión'&gt;
+    &lt;p&gt;¿No tienes una cuenta?&lt;/p&gt;
+    &lt;a id='signUpA'&gt;Regístrate&lt;/a&gt;
+    &lt;p id='ms'&gt;&lt;/p&gt;
+    &lt;/div&gt;
+  
+    &lt;/div&gt;
+    &lt;/main&gt;\`);
+
+  /* istanbul ignore next */
+  cov_19bg1jmdm3().s[3]++;
+  conteiner.innerHTML = html;
+
+  /* istanbul ignore next */
+  cov_19bg1jmdm3().s[4]++;
+  conteiner.querySelector('#signUpA').addEventListener('click', (e) =&gt; {
+    /* istanbul ignore next */
+    cov_19bg1jmdm3().f[1]++;
+    cov_19bg1jmdm3().s[5]++;
+    e.preventDefault();
+
+    /* istanbul ignore next */
+    cov_19bg1jmdm3().s[6]++;
+
+    /* istanbul ignore next */
+    (0,
+    /* istanbul ignore next */
+    _routes.
+    /* istanbul ignore next */
+    onNavigate)('/signup');
+  });
+
+  /* istanbul ignore next */
+  cov_19bg1jmdm3().s[7]++;
+  conteiner.querySelector('#loginButton').addEventListener('click', (e) =&gt; {
+    /* istanbul ignore next */
+    cov_19bg1jmdm3().f[2]++;
+    cov_19bg1jmdm3().s[8]++;
+    e.preventDefault();
+
+    /* istanbul ignore next */
+    cov_19bg1jmdm3().s[9]++;
+
+    /* istanbul ignore next */
+    (0,
+    /* istanbul ignore next */
+    _routes.
+    /* istanbul ignore next */
+    onNavigate)('/login');
+  });
+
+  /* istanbul ignore next */
+  cov_19bg1jmdm3().s[10]++;
+  return conteiner;
+}
+</div>
+`;
