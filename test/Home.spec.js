@@ -13,12 +13,8 @@ describe('Home', () => {
     render(rootDiv, Home);
     expect(rootDiv).toMatchSnapshot();
   });
-  /*  it('behavior click Login Button', () => {
+  it('button', () => {
     render(rootDiv, Home);
-    const button = document.getElementById('loginButton').outerHTML;
-    console.log(button);
-    /*  button.click();
-    render(rootDiv, Login);
-    expect(rootDiv.innerHTML).toMatchSnapshot();
-  }); */
+    console.log(rootDiv.innerHTML);
+  });
 });

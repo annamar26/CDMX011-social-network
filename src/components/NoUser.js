@@ -1,4 +1,4 @@
-import { onNavigate } from "../routes.js";
+import { onNavigate } from '../routes.js';
 
 const noUser = () => {
   const conteiner = document.createElement('div');
@@ -17,7 +17,7 @@ const noUser = () => {
 
   conteiner.innerHTML = html;
   const volver = conteiner.querySelector('#loginSubmit');
-  volver.addEventListener('click', ()=>{
+  volver.addEventListener('click', () => {
     onNavigate('/login');
   });
 

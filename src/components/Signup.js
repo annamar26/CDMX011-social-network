@@ -30,8 +30,6 @@ const signup = () => {
     e.preventDefault();
     fbFunctions.googleUserSignUp(e)
       .then(() => {
-        console.log('Google singin');
-
         onNavigate('/timeline');
         fbFunctions.getPosts();
         fbFunctions.createUserDoc();
@@ -60,11 +58,7 @@ const signup = () => {
     e.preventDefault();
     const signupEmail = container.querySelector('#sgEmail').value;
     const signupPassword = container.querySelector('#sgPassword').value;
-    fbFunctions.userSignup(signupEmail, signupPassword).then((user) => {
-      console.log(user);
-
-      console.log('Login exitoso');
-
+    fbFunctions.userSignup(signupEmail, signupPassword).then(() => {
       onNavigate('/profile');
       fbFunctions.getCurrentUserPosts();
       fbFunctions.createUserDoc();

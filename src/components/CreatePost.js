@@ -31,12 +31,11 @@ const CreatePost = () => {
 
     fbFunctions.createPost(bookAutor, bookTitle, postContent)
       .then(() => {
-        console.log('Document successfully written!');
         fbFunctions.getPosts();
         onNavigate('/timeline');
       })
-      .catch((error) => {
-        console.error('Error writing document: ', error);
+      .catch(() => {
+
       });
   });
   return conteiner;

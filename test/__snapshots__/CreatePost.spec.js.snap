@@ -20,7 +20,7 @@ exports[`Create Post should render Create Post page 1`] = `
     &lt;h3&gt;Crear publicación&lt;/h3&gt;
     &lt;input id='autor' type=text placeholder=\\"Autor del libro\\" required&gt;
     &lt;input id='title' type=text placeholder=\\"Titulo del libro\\" required&gt;
-    &lt;textarea id='content-input' type=text placeholder=\\"Escribe aqií tu reseña\\" maxlength=\\"1200\\" required&gt;&lt;/textarea&gt;
+    &lt;textarea id='content-input' type=text placeholder=\\"Escribe aquí tu reseña. Cuenta tu experiencia con la lectura del libro que desees\\" maxlength=\\"1200\\" required&gt;&lt;/textarea&gt;
     &lt;button id='publicar' class='button' type=submit&gt;Publicar&lt;/button&gt;
     &lt;/form&gt;
     &lt;/div&gt;\`);
@@ -76,10 +76,6 @@ exports[`Create Post should render Create Post page 1`] = `
       /* istanbul ignore next */
       cov_2756w4ghya().f[2]++;
       cov_2756w4ghya().s[13]++;
-      console.log('Document successfully written!');
-
-      /* istanbul ignore next */
-      cov_2756w4ghya().s[14]++;
 
       /* istanbul ignore next */
       _firebaseClient.
@@ -87,18 +83,22 @@ exports[`Create Post should render Create Post page 1`] = `
       fbFunctions.getPosts();
 
       /* istanbul ignore next */
-      cov_2756w4ghya().s[15]++;
-      onNavigate('/timeline');
-    }).catch((error) =&gt; {
+      cov_2756w4ghya().s[14]++;
+
+      /* istanbul ignore next */
+      (0,
+      /* istanbul ignore next */
+      _routes.
+      /* istanbul ignore next */
+      onNavigate)('/timeline');
+    }).catch(() =&gt; {
       /* istanbul ignore next */
       cov_2756w4ghya().f[3]++;
-      cov_2756w4ghya().s[16]++;
-      console.error('Error writing document: ', error);
     });
   });
 
   /* istanbul ignore next */
-  cov_2756w4ghya().s[17]++;
+  cov_2756w4ghya().s[15]++;
   return conteiner;
 }"
 `;

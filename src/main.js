@@ -14,7 +14,7 @@ export const setProfile = () => {
 export const welcome = () => {
   const user = fbFunctions.getUser();
   const welcome = document.querySelector('#profile');
-  console.log(user.photoURL);
+
   if (user.photoURL != null) {
     welcome.innerHTML = `<div class='nameInWelcome'><img class='profile-icon photo-user' id='user-edit' src='${user.photoURL}'><p>Perfil</p></div>`;
   } else {
@@ -25,13 +25,12 @@ export const welcome = () => {
     setProfile();
   });
 
-  console.log(welcome);
   return welcome;
 };
 
 const logoReturn = () => {
   const logo = document.querySelector('.logo');
-  console.log(logo)
+
   logo.addEventListener('click', () => {
     onNavigate('/');
   });
@@ -39,10 +38,10 @@ const logoReturn = () => {
 
 window.addEventListener('load', () => {
   dispatchRoute(window.location.pathname);
-  logoReturn()
+  logoReturn();
 });
 
 window.onpopstate = () => {
   dispatchRoute(window.location.pathname);
-  logoReturn()
+  logoReturn();
 };

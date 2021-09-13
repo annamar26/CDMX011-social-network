@@ -14,16 +14,37 @@ exports[`NoUser should render NoUser page 1`] = `
      
       
       &lt;/nav&gt;
-      &lt;div class='noUser-view'&gt;
+      &lt;div class='noUser-view signUp-container'&gt;
       &lt;h2&gt;Debes iniciar sesion para ver el contenido de la pagina&lt;/h2&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+      &lt;input id='loginSubmit' class='button' type=button value='Inicia Sesión'&gt;
       &lt;/div&gt;\`);
 
   /* istanbul ignore next */
   cov_1o4cguzn4k().s[3]++;
   conteiner.innerHTML = html;
+  const volver =
+  /* istanbul ignore next */
+  (cov_1o4cguzn4k().s[4]++, conteiner.querySelector('#loginSubmit'));
 
   /* istanbul ignore next */
-  cov_1o4cguzn4k().s[4]++;
+  cov_1o4cguzn4k().s[5]++;
+  volver.addEventListener('click', () =&gt; {
+    /* istanbul ignore next */
+    cov_1o4cguzn4k().f[1]++;
+    cov_1o4cguzn4k().s[6]++;
+
+    /* istanbul ignore next */
+    (0,
+    /* istanbul ignore next */
+    _routes.
+    /* istanbul ignore next */
+    onNavigate)('/login');
+  });
+
+  /* istanbul ignore next */
+  cov_1o4cguzn4k().s[7]++;
   return conteiner;
 }"
 `;

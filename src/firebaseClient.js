@@ -1,8 +1,6 @@
-/* eslint-disable no-unused-expressions */
 import noUser from './components/NoUser.js';
 import { setUpPosts } from './components/PostsRender.js';
 import { setProfile, welcome } from './main.js';
-import { onNavigate } from './routes.js';
 import { render } from './utils.js';
 
 export const fbFunctions = {
@@ -34,7 +32,7 @@ export const fbFunctions = {
   },
   pushNewPhoto(photo, name) {
     return storageRef.ref(`/images/${name}`).put(photo).then(() => {
-      console.log('Uploaded a blob or file!');
+
     });
   },
 
@@ -118,7 +116,6 @@ export const fbFunctions = {
 
           .then((snapshot) => {
             setUpPosts(snapshot.docs);
-            console.log(snapshot.docs);
           });
       } else {
         setUpPosts([]);
@@ -181,25 +178,14 @@ export const fbFunctions = {
     return fs.collection('users').doc(fbFunctions.getUser().uid)
 
       .get().then((doc) => {
-        if (doc.exists) {
-          console.log('Document data:', doc.data());
-        } else {
+        if (!doc.exists) {
           fs.collection('users').doc(fbFunctions.getUser().uid).set({
             displayName: fbFunctions.getUser().displayName,
             photoURL: fbFunctions.getUser().photoURL,
             email: fbFunctions.getUser().email,
             uid: fbFunctions.getUser().uid,
-          })
-            .then(() => {
-              console.log('Document successfully written!');
-            })
-            .catch((error) => {
-              console.error('Error writing document: ', error);
-            });
+          });
         }
-      })
-      .catch((error) => {
-        console.log('Error getting document:', error);
       });
   },
 };

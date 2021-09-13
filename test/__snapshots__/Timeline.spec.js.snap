@@ -11,7 +11,7 @@ exports[`Timeline should render Timeline page 1`] = `
   /* istanbul ignore next */
   (cov_21qpngsk2g().s[2]++, \`&lt;nav&gt;
     &lt;div&gt;
-    &lt;img class='logo1 logo' src='./icons&amp;img/logo.png'&gt; &lt;/div&gt;
+    &lt;img class='logo logo1 ' src='./icons&amp;img/logo.png'&gt; &lt;/div&gt;
     &lt;div id='profile' class='icons img-profile'&gt;
     &lt;/div&gt;&lt;/nav&gt;
   
@@ -64,7 +64,13 @@ exports[`Timeline should render Timeline page 1`] = `
 
     /* istanbul ignore next */
     cov_21qpngsk2g().s[9]++;
-    onNavigate('/createpost');
+
+    /* istanbul ignore next */
+    (0,
+    /* istanbul ignore next */
+    _routes.
+    /* istanbul ignore next */
+    onNavigate)('/createpost');
   });
 
   /* istanbul ignore next */

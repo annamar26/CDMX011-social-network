@@ -3,57 +3,54 @@
 exports[`SetUpPosts should render Home page 1`] = `
 "(data) =&gt; {
   /* istanbul ignore next */
-  cov_1dfg7x52yv().f[3]++;
+  cov_1dfg7x52yv().f[0]++;
   const conteiner =
   /* istanbul ignore next */
-  (cov_1dfg7x52yv().s[14]++, document.createElement('div'));
+  (cov_1dfg7x52yv().s[1]++, document.createElement('div'));
 
   /* istanbul ignore next */
-  cov_1dfg7x52yv().s[15]++;
+  cov_1dfg7x52yv().s[2]++;
   conteiner.innerHTML = '&lt;div class=\\"posts-container\\"&gt;&lt;/div&gt;';
   const postContent =
   /* istanbul ignore next */
-  (cov_1dfg7x52yv().s[16]++, document.querySelector('.posts-container'));
+  (cov_1dfg7x52yv().s[3]++, document.querySelector('.posts-container'));
   let html =
   /* istanbul ignore next */
-  (cov_1dfg7x52yv().s[17]++, '');
+  (cov_1dfg7x52yv().s[4]++, '');
   const currentUser =
   /* istanbul ignore next */
-  (cov_1dfg7x52yv().s[18]++,
+  (cov_1dfg7x52yv().s[5]++,
   /* istanbul ignore next */
   _firebaseClient.
   /* istanbul ignore next */
   fbFunctions.getUser());
   let currentidPost =
   /* istanbul ignore next */
-  (cov_1dfg7x52yv().s[19]++, '');
+  (cov_1dfg7x52yv().s[6]++, '');
 
   /* istanbul ignore next */
-  cov_1dfg7x52yv().s[20]++;
+  cov_1dfg7x52yv().s[7]++;
 
   if (data.length) {
     /* istanbul ignore next */
-    cov_1dfg7x52yv().b[3][0]++;
-    cov_1dfg7x52yv().s[21]++;
+    cov_1dfg7x52yv().b[0][0]++;
+    cov_1dfg7x52yv().s[8]++;
     return data.forEach((doc) =&gt; {
       /* istanbul ignore next */
-      cov_1dfg7x52yv().f[4]++;
+      cov_1dfg7x52yv().f[1]++;
       const publicaciones =
       /* istanbul ignore next */
-      (cov_1dfg7x52yv().s[22]++, doc.data());
+      (cov_1dfg7x52yv().s[9]++, doc.data());
       const date =
       /* istanbul ignore next */
-      (cov_1dfg7x52yv().s[23]++, publicaciones.fecha.toDate().toLocaleString());
-
-      /* istanbul ignore next */
-      cov_1dfg7x52yv().s[24]++;
-      userDataInPost(publicaciones.uid);
+      (cov_1dfg7x52yv().s[10]++, publicaciones.fecha.toDate().toLocaleString());
       const li =
       /* istanbul ignore next */
-      (cov_1dfg7x52yv().s[25]++, \`
+      (cov_1dfg7x52yv().s[11]++, \`
          &lt;div class='post-div'&gt;
-         &lt;div class='post-header'&gt;
-       
+         &lt;div id='user' class='post-header'&gt; 
+         &lt;div class='div-user'&gt;  
+         &lt;img class='photo-user user-post' data-id=\${publicaciones.uid} src=''&gt;&lt;p id='nombre' class='user' data-id=\${publicaciones.uid}&gt;&lt;/p&gt;&lt;/div&gt; 
          &lt;div class='fecha'&gt;
          &lt;p &gt;\${date}&lt;/p&gt; &lt;/div&gt;
          &lt;/div&gt;
@@ -75,12 +72,93 @@ exports[`SetUpPosts should render Home page 1`] = `
           \`);
 
       /* istanbul ignore next */
-      cov_1dfg7x52yv().s[26]++;
+      cov_1dfg7x52yv().s[12]++;
       html += li;
 
       /* istanbul ignore next */
-      cov_1dfg7x52yv().s[27]++;
+      cov_1dfg7x52yv().s[13]++;
       postContent.innerHTML = html;
+      const names =
+      /* istanbul ignore next */
+      (cov_1dfg7x52yv().s[14]++, document.querySelectorAll('#nombre'));
+
+      /* istanbul ignore next */
+      cov_1dfg7x52yv().s[15]++;
+
+      for (const name of names) {
+        /* istanbul ignore next */
+        cov_1dfg7x52yv().s[16]++;
+        fs.collection('users').doc(name.dataset.id).get().then((user) =&gt; {
+          /* istanbul ignore next */
+          cov_1dfg7x52yv().f[2]++;
+          let userName =
+          /* istanbul ignore next */
+          (cov_1dfg7x52yv().s[17]++, user.data().displayName);
+
+          /* istanbul ignore next */
+          cov_1dfg7x52yv().s[18]++;
+
+          if (
+          /* istanbul ignore next */
+          (cov_1dfg7x52yv().b[2][0]++, userName === undefined) ||
+          /* istanbul ignore next */
+          (cov_1dfg7x52yv().b[2][1]++, userName === null)) {
+            /* istanbul ignore next */
+            cov_1dfg7x52yv().b[1][0]++;
+            cov_1dfg7x52yv().s[19]++;
+            userName = user.data().email;
+          } else
+          /* istanbul ignore next */
+          {
+            cov_1dfg7x52yv().b[1][1]++;
+          }
+
+          cov_1dfg7x52yv().s[20]++;
+          name.innerHTML = userName;
+        });
+      }
+
+      const photos =
+      /* istanbul ignore next */
+      (cov_1dfg7x52yv().s[21]++, document.querySelectorAll('.user-post'));
+
+      /* istanbul ignore next */
+      cov_1dfg7x52yv().s[22]++;
+
+      for (const photo of photos) {
+        /* istanbul ignore next */
+        cov_1dfg7x52yv().s[23]++;
+        fs.collection('users').doc(photo.dataset.id).get().then((user) =&gt; {
+          /* istanbul ignore next */
+          cov_1dfg7x52yv().f[3]++;
+          const photoUser =
+          /* istanbul ignore next */
+          (cov_1dfg7x52yv().s[24]++, user.data().photoURL);
+
+          /* istanbul ignore next */
+          cov_1dfg7x52yv().s[25]++;
+
+          if (
+          /* istanbul ignore next */
+          (cov_1dfg7x52yv().b[4][0]++, photoUser === undefined) ||
+          /* istanbul ignore next */
+          (cov_1dfg7x52yv().b[4][1]++, photoUser === null)) {
+            /* istanbul ignore next */
+            cov_1dfg7x52yv().b[3][0]++;
+            cov_1dfg7x52yv().s[26]++;
+            photo.src = './icons&amp;img/profileicon.svg';
+          } else
+          /* istanbul ignore next */
+          {
+            cov_1dfg7x52yv().b[3][1]++;
+          }
+
+          cov_1dfg7x52yv().s[27]++;
+          photo.src = photoUser;
+        });
+      } // \${publicaciones.userphoto ? publicaciones.userphoto : './icons&amp;img/profileicon.svg'}
+
+
       const likes =
       /* istanbul ignore next */
       (cov_1dfg7x52yv().s[28]++, document.querySelectorAll('.post-icon'));
@@ -94,12 +172,12 @@ exports[`SetUpPosts should render Home page 1`] = `
 
         if (like.dataset.likes.includes(currentUser.email) === true) {
           /* istanbul ignore next */
-          cov_1dfg7x52yv().b[4][0]++;
+          cov_1dfg7x52yv().b[5][0]++;
           cov_1dfg7x52yv().s[31]++;
           like.src = './icons&amp;img/likedicon.svg';
         } else {
           /* istanbul ignore next */
-          cov_1dfg7x52yv().b[4][1]++;
+          cov_1dfg7x52yv().b[5][1]++;
           cov_1dfg7x52yv().s[32]++;
           like.src = './icons&amp;img/likeicon.svg';
         }
@@ -108,12 +186,12 @@ exports[`SetUpPosts should render Home page 1`] = `
         cov_1dfg7x52yv().s[33]++;
         like.addEventListener('click', () =&gt; {
           /* istanbul ignore next */
-          cov_1dfg7x52yv().f[5]++;
+          cov_1dfg7x52yv().f[4]++;
           cov_1dfg7x52yv().s[34]++;
 
           if (like.dataset.likes.includes(currentUser.email) === true) {
             /* istanbul ignore next */
-            cov_1dfg7x52yv().b[5][0]++;
+            cov_1dfg7x52yv().b[6][0]++;
             cov_1dfg7x52yv().s[35]++;
             currentidPost = like.dataset.id;
 
@@ -125,61 +203,41 @@ exports[`SetUpPosts should render Home page 1`] = `
             /* istanbul ignore next */
             fbFunctions.deleteLike(currentidPost, currentUser.email).then(() =&gt; {
               /* istanbul ignore next */
-              cov_1dfg7x52yv().f[6]++;
+              cov_1dfg7x52yv().f[5]++;
               cov_1dfg7x52yv().s[37]++;
 
               /* istanbul ignore next */
               _firebaseClient.
               /* istanbul ignore next */
               fbFunctions.getPosts();
-
+            }).catch(() =&gt; {
               /* istanbul ignore next */
-              cov_1dfg7x52yv().s[38]++;
-              console.log(currentidPost);
-
-              /* istanbul ignore next */
-              cov_1dfg7x52yv().s[39]++;
-              console.log('dislike');
-            }).catch((error) =&gt; {
-              /* istanbul ignore next */
-              cov_1dfg7x52yv().f[7]++;
-              cov_1dfg7x52yv().s[40]++;
-              console.error('Error writing like: ', error);
+              cov_1dfg7x52yv().f[6]++;
             });
           } else {
             /* istanbul ignore next */
-            cov_1dfg7x52yv().b[5][1]++;
-            cov_1dfg7x52yv().s[41]++;
+            cov_1dfg7x52yv().b[6][1]++;
+            cov_1dfg7x52yv().s[38]++;
             currentidPost = like.dataset.id;
 
             /* istanbul ignore next */
-            cov_1dfg7x52yv().s[42]++;
+            cov_1dfg7x52yv().s[39]++;
 
             /* istanbul ignore next */
             _firebaseClient.
             /* istanbul ignore next */
             fbFunctions.createLike(currentidPost, currentUser.email).then(() =&gt; {
               /* istanbul ignore next */
-              cov_1dfg7x52yv().f[8]++;
-              cov_1dfg7x52yv().s[43]++;
+              cov_1dfg7x52yv().f[7]++;
+              cov_1dfg7x52yv().s[40]++;
 
               /* istanbul ignore next */
               _firebaseClient.
               /* istanbul ignore next */
               fbFunctions.getPosts();
-
+            }).catch(() =&gt; {
               /* istanbul ignore next */
-              cov_1dfg7x52yv().s[44]++;
-              console.log(currentidPost);
-
-              /* istanbul ignore next */
-              cov_1dfg7x52yv().s[45]++;
-              console.log('Like');
-            }).catch((error) =&gt; {
-              /* istanbul ignore next */
-              cov_1dfg7x52yv().f[9]++;
-              cov_1dfg7x52yv().s[46]++;
-              console.error('Error writing like: ', error);
+              cov_1dfg7x52yv().f[8]++;
             });
           }
         });
@@ -187,114 +245,108 @@ exports[`SetUpPosts should render Home page 1`] = `
 
       const buttons =
       /* istanbul ignore next */
-      (cov_1dfg7x52yv().s[47]++, document.querySelectorAll('.delete'));
+      (cov_1dfg7x52yv().s[41]++, document.querySelectorAll('.delete'));
 
       /* istanbul ignore next */
-      cov_1dfg7x52yv().s[48]++;
+      cov_1dfg7x52yv().s[42]++;
 
       for (const button of buttons) {
         /* istanbul ignore next */
-        cov_1dfg7x52yv().s[49]++;
+        cov_1dfg7x52yv().s[43]++;
 
         if (button.dataset.uid === currentUser.uid) {
           /* istanbul ignore next */
-          cov_1dfg7x52yv().b[6][0]++;
-          cov_1dfg7x52yv().s[50]++;
+          cov_1dfg7x52yv().b[7][0]++;
+          cov_1dfg7x52yv().s[44]++;
           button.src = './icons&amp;img/deleteicon.svg';
 
           /* istanbul ignore next */
-          cov_1dfg7x52yv().s[51]++;
+          cov_1dfg7x52yv().s[45]++;
           button.addEventListener('click', () =&gt; {
             /* istanbul ignore next */
-            cov_1dfg7x52yv().f[10]++;
-            cov_1dfg7x52yv().s[52]++;
+            cov_1dfg7x52yv().f[9]++;
+            cov_1dfg7x52yv().s[46]++;
             currentidPost = button.dataset.id;
             const result =
             /* istanbul ignore next */
-            (cov_1dfg7x52yv().s[53]++, confirm('¿Estás seguro de que quieres eliminar esta publicación?'));
+            (cov_1dfg7x52yv().s[47]++, confirm('¿Estás seguro de que quieres eliminar esta publicación?'));
 
             /* istanbul ignore next */
-            cov_1dfg7x52yv().s[54]++;
+            cov_1dfg7x52yv().s[48]++;
 
             if (result === true) {
               /* istanbul ignore next */
-              cov_1dfg7x52yv().b[7][0]++;
-              cov_1dfg7x52yv().s[55]++;
+              cov_1dfg7x52yv().b[8][0]++;
+              cov_1dfg7x52yv().s[49]++;
 
               /* istanbul ignore next */
               _firebaseClient.
               /* istanbul ignore next */
               fbFunctions.deletePost(currentidPost).then(() =&gt; {
                 /* istanbul ignore next */
-                cov_1dfg7x52yv().f[11]++;
-                cov_1dfg7x52yv().s[56]++;
-                console.log('Document successfully deleted!');
-
-                /* istanbul ignore next */
-                cov_1dfg7x52yv().s[57]++;
+                cov_1dfg7x52yv().f[10]++;
+                cov_1dfg7x52yv().s[50]++;
 
                 /* istanbul ignore next */
                 _firebaseClient.
                 /* istanbul ignore next */
                 fbFunctions.getPosts();
-              }).catch((error) =&gt; {
+              }).catch(() =&gt; {
                 /* istanbul ignore next */
-                cov_1dfg7x52yv().f[12]++;
-                cov_1dfg7x52yv().s[58]++;
-                console.error('Error removing document: ', error);
+                cov_1dfg7x52yv().f[11]++;
               });
             } else
             /* istanbul ignore next */
             {
-              cov_1dfg7x52yv().b[7][1]++;
+              cov_1dfg7x52yv().b[8][1]++;
             }
           });
         } else {
           /* istanbul ignore next */
-          cov_1dfg7x52yv().b[6][1]++;
-          cov_1dfg7x52yv().s[59]++;
+          cov_1dfg7x52yv().b[7][1]++;
+          cov_1dfg7x52yv().s[51]++;
           button.src = '';
         }
       }
 
       const edits =
       /* istanbul ignore next */
-      (cov_1dfg7x52yv().s[60]++, document.querySelectorAll('.edit'));
+      (cov_1dfg7x52yv().s[52]++, document.querySelectorAll('.edit'));
 
       /* istanbul ignore next */
-      cov_1dfg7x52yv().s[61]++;
+      cov_1dfg7x52yv().s[53]++;
 
       for (const edit of edits) {
         /* istanbul ignore next */
-        cov_1dfg7x52yv().s[62]++;
+        cov_1dfg7x52yv().s[54]++;
 
         if (edit.dataset.uid === currentUser.uid) {
           /* istanbul ignore next */
-          cov_1dfg7x52yv().b[8][0]++;
-          cov_1dfg7x52yv().s[63]++;
+          cov_1dfg7x52yv().b[9][0]++;
+          cov_1dfg7x52yv().s[55]++;
           edit.src = './icons&amp;img/editicon.svg';
 
           /* istanbul ignore next */
-          cov_1dfg7x52yv().s[64]++;
+          cov_1dfg7x52yv().s[56]++;
           edit.addEventListener('click', () =&gt; {
             /* istanbul ignore next */
-            cov_1dfg7x52yv().f[13]++;
-            cov_1dfg7x52yv().s[65]++;
+            cov_1dfg7x52yv().f[12]++;
+            cov_1dfg7x52yv().s[57]++;
             currentidPost = edit.dataset.id;
             const post =
             /* istanbul ignore next */
-            (cov_1dfg7x52yv().s[66]++,
+            (cov_1dfg7x52yv().s[58]++,
             /* istanbul ignore next */
             _firebaseClient.
             /* istanbul ignore next */
             fbFunctions.getPostToEdit(currentidPost).then((doc) =&gt; {
               /* istanbul ignore next */
-              cov_1dfg7x52yv().f[14]++;
-              cov_1dfg7x52yv().s[67]++;
+              cov_1dfg7x52yv().f[13]++;
+              cov_1dfg7x52yv().s[59]++;
               doc.data();
 
               /* istanbul ignore next */
-              cov_1dfg7x52yv().s[68]++;
+              cov_1dfg7x52yv().s[60]++;
               html = \`  &lt;nav&gt;
                   &lt;div&gt;
                   &lt;img class='logo' src='./icons&amp;img/logo.png'&gt;&lt;/div&gt;
@@ -312,14 +364,14 @@ exports[`SetUpPosts should render Home page 1`] = `
                   &lt;/div&gt;\`;
               const rootDiv =
               /* istanbul ignore next */
-              (cov_1dfg7x52yv().s[69]++, document.querySelector('#root'));
+              (cov_1dfg7x52yv().s[61]++, document.querySelector('#root'));
 
               /* istanbul ignore next */
-              cov_1dfg7x52yv().s[70]++;
+              cov_1dfg7x52yv().s[62]++;
               rootDiv.innerHTML = html;
 
               /* istanbul ignore next */
-              cov_1dfg7x52yv().s[71]++;
+              cov_1dfg7x52yv().s[63]++;
 
               /* istanbul ignore next */
               _firebaseClient.
@@ -328,69 +380,61 @@ exports[`SetUpPosts should render Home page 1`] = `
 
               const autor =
               /* istanbul ignore next */
-              (cov_1dfg7x52yv().s[72]++, rootDiv.querySelector('#autor'));
+              (cov_1dfg7x52yv().s[64]++, rootDiv.querySelector('#autor'));
 
               /* istanbul ignore next */
-              cov_1dfg7x52yv().s[73]++;
+              cov_1dfg7x52yv().s[65]++;
               autor.setAttribute = ('value', post.autor);
               const editedPost =
               /* istanbul ignore next */
-              (cov_1dfg7x52yv().s[74]++, document.querySelector('#postForm'));
+              (cov_1dfg7x52yv().s[66]++, document.querySelector('#postForm'));
 
               /* istanbul ignore next */
-              cov_1dfg7x52yv().s[75]++;
+              cov_1dfg7x52yv().s[67]++;
               editedPost.addEventListener('submit', (e) =&gt; {
                 /* istanbul ignore next */
-                cov_1dfg7x52yv().f[15]++;
-                cov_1dfg7x52yv().s[76]++;
+                cov_1dfg7x52yv().f[14]++;
+                cov_1dfg7x52yv().s[68]++;
                 e.preventDefault();
                 const bookAutor =
                 /* istanbul ignore next */
-                (cov_1dfg7x52yv().s[77]++, document.getElementById('autor').value);
+                (cov_1dfg7x52yv().s[69]++, document.getElementById('autor').value);
                 const bookTitle =
                 /* istanbul ignore next */
-                (cov_1dfg7x52yv().s[78]++, document.getElementById('title').value);
+                (cov_1dfg7x52yv().s[70]++, document.getElementById('title').value);
                 const postContent =
                 /* istanbul ignore next */
-                (cov_1dfg7x52yv().s[79]++, document.getElementById('content-input').value);
+                (cov_1dfg7x52yv().s[71]++, document.getElementById('content-input').value);
 
                 /* istanbul ignore next */
-                cov_1dfg7x52yv().s[80]++;
+                cov_1dfg7x52yv().s[72]++;
 
                 /* istanbul ignore next */
                 _firebaseClient.
                 /* istanbul ignore next */
                 fbFunctions.updatePost(edit.dataset.id, bookAutor, bookTitle, postContent).then(() =&gt; {
                   /* istanbul ignore next */
-                  cov_1dfg7x52yv().f[16]++;
-                  cov_1dfg7x52yv().s[81]++;
-                  console.log('Document successfully updated!');
-
-                  /* istanbul ignore next */
-                  cov_1dfg7x52yv().s[82]++;
+                  cov_1dfg7x52yv().f[15]++;
+                  cov_1dfg7x52yv().s[73]++;
                   timeline.template();
-                }).catch((error) =&gt; {
+                }).catch(() =&gt; {
                   /* istanbul ignore next */
-                  cov_1dfg7x52yv().f[17]++;
-                  cov_1dfg7x52yv().s[83]++;
-                  console.error('Error updated document: ', error);
+                  cov_1dfg7x52yv().f[16]++;
                 });
               });
 
               /* istanbul ignore next */
-              cov_1dfg7x52yv().s[84]++;
+              cov_1dfg7x52yv().s[74]++;
               return rootDiv;
-            }).catch((error) =&gt; {
+            }).catch(() =&gt; {
               /* istanbul ignore next */
-              cov_1dfg7x52yv().f[18]++;
-              cov_1dfg7x52yv().s[85]++;
-              console.log('Error getting document:', error);
+              cov_1dfg7x52yv().f[17]++;
             }));
           });
         } else {
           /* istanbul ignore next */
-          cov_1dfg7x52yv().b[8][1]++;
-          cov_1dfg7x52yv().s[86]++;
+          cov_1dfg7x52yv().b[9][1]++;
+          cov_1dfg7x52yv().s[75]++;
           edit.src = '';
         }
       }
@@ -398,18 +442,18 @@ exports[`SetUpPosts should render Home page 1`] = `
   } else
   /* istanbul ignore next */
   {
-    cov_1dfg7x52yv().b[3][1]++;
+    cov_1dfg7x52yv().b[0][1]++;
   }
 
-  cov_1dfg7x52yv().s[87]++;
+  cov_1dfg7x52yv().s[76]++;
   html = '';
 
   /* istanbul ignore next */
-  cov_1dfg7x52yv().s[88]++;
+  cov_1dfg7x52yv().s[77]++;
   postContent.innerHTML = html;
 
   /* istanbul ignore next */
-  cov_1dfg7x52yv().s[89]++;
+  cov_1dfg7x52yv().s[78]++;
   return conteiner;
 }"
 `;

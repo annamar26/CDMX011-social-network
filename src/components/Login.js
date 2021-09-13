@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 import { fbFunctions } from '../firebaseClient.js';
 import { onNavigate } from '../routes.js';
 
@@ -33,8 +32,6 @@ const Login = () => {
 
     fbFunctions.googleUserSignUp(e)
       .then(() => {
-        console.log('Google singin');
-
         onNavigate('/timeline');
         fbFunctions.createUserDoc();
         fbFunctions.getPosts();
@@ -64,7 +61,6 @@ const Login = () => {
     const loginEmail = container.querySelector('#lgEmail').value;
     const loginPassword = container.querySelector('#lgPassword').value;
     fbFunctions.userLogin(loginEmail, loginPassword).then(() => {
-      console.log('Login exitoso');
       onNavigate('/timeline');
       fbFunctions.createUserDoc();
       fbFunctions.getPosts();

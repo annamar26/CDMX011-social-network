@@ -41,7 +41,7 @@ export const Profile = () => {
   const logout = container.querySelector('.logout');
   logout.addEventListener('click', () => {
     fbFunctions.userLogout().then(() => {
-      console.log('logout exitoso');
+
     });
   });
 
@@ -59,15 +59,14 @@ export const Profile = () => {
 
     fbFunctions.updateStringsProfile(name, email)
       .then(() => {
-        console.log('Perfil editado');
+
       })
-      .catch((error) => {
-        console.error('Error writing document: ', error);
+      .catch(() => {
+
       });
 
     fbFunctions.pushNewPhoto(photo, photo.name)
       .then(() => {
-        console.log('Perfil editado');
         fbFunctions.pullNewPhoto(photo.name).then((url) => {
           fbFunctions.updatePhotoProfile(url).then(() => {
             fbFunctions.updateUserDoc(name, email, url);
@@ -75,8 +74,8 @@ export const Profile = () => {
           });
         });
       })
-      .catch((error) => {
-        console.error('Error writing document: ', error);
+      .catch(() => {
+
       });
   });
 

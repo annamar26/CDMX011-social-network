@@ -43,9 +43,8 @@ export const setUpPosts = (data) => {
       html += li;
       postContent.innerHTML = html;
       const names = document.querySelectorAll('#nombre');
-      console.log(names);
+
       for (const name of names) {
-        console.log(name);
         fs.collection('users').doc(name.dataset.id).get()
           .then((user) => {
             let userName = user.data().displayName;
@@ -56,7 +55,7 @@ export const setUpPosts = (data) => {
           });
       }
       const photos = document.querySelectorAll('.user-post');
-      console.log(photos);
+
       for (const photo of photos) {
         fs.collection('users').doc(photo.dataset.id).get()
           .then((user) => {
@@ -82,23 +81,18 @@ export const setUpPosts = (data) => {
 
             fbFunctions.deleteLike(currentidPost, currentUser.email).then(() => {
               fbFunctions.getPosts();
-
-              console.log(currentidPost);
-              console.log('dislike');
             })
-              .catch((error) => {
-                console.error('Error writing like: ', error);
+              .catch(() => {
+
               });
           } else {
             currentidPost = like.dataset.id;
 
             fbFunctions.createLike(currentidPost, currentUser.email).then(() => {
               fbFunctions.getPosts();
-              console.log(currentidPost);
-              console.log('Like');
             })
-              .catch((error) => {
-                console.error('Error writing like: ', error);
+              .catch(() => {
+
               });
           }
         });
@@ -114,11 +108,10 @@ export const setUpPosts = (data) => {
             const result = confirm('¿Estás seguro de que quieres eliminar esta publicación?');
             if (result === true) {
               fbFunctions.deletePost(currentidPost).then(() => {
-                console.log('Document successfully deleted!');
                 fbFunctions.getPosts();
               })
-                .catch((error) => {
-                  console.error('Error removing document: ', error);
+                .catch(() => {
+
                 });
             }
           });
@@ -168,18 +161,17 @@ export const setUpPosts = (data) => {
 
                   fbFunctions.updatePost(edit.dataset.id, bookAutor, bookTitle, postContent)
                     .then(() => {
-                      console.log('Document successfully updated!');
                       timeline.template();
                     })
-                    .catch((error) => {
-                      console.error('Error updated document: ', error);
+                    .catch(() => {
+
                     });
                 });
                 return rootDiv;
               })
 
-              .catch((error) => {
-                console.log('Error getting document:', error);
+              .catch(() => {
+
               });
           });
         } else {
