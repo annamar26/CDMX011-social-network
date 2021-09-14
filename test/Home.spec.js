@@ -9,12 +9,9 @@ describe('Home', () => {
   document.body.innerHTML = '<div id="root"></div>';
   const rootDiv = document.getElementById('root');
 
-  it('should render Home page', () => {
-    render(rootDiv, Home);
+  // eslint-disable-next-line jest/no-focused-tests
+  it.only('should render Home page', () => {
+    render(rootDiv, Home());
     expect(rootDiv).toMatchSnapshot();
-  });
-  it('button', () => {
-    render(rootDiv, Home);
-    console.log(rootDiv.innerHTML);
   });
 });

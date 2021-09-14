@@ -45,3 +45,7 @@ window.onpopstate = () => {
   dispatchRoute(window.location.pathname);
   logoReturn();
 };
+window.addEventListener('reload', () => {
+  dispatchRoute(window.location.pathname);
+  logoReturn();
+});

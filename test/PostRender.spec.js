@@ -9,7 +9,7 @@ describe('SetUpPosts', () => {
   const rootDiv = document.getElementById('root');
 
   it('should render Home page', () => {
-    render(rootDiv, setUpPosts);
-    expect(rootDiv.innerHTML).toMatchSnapshot();
+    render(rootDiv, setUpPosts());
+    expect(rootDiv).toMatchSnapshot();
   });
 });

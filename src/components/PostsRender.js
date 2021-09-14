@@ -1,6 +1,7 @@
 /* eslint-disable consistent-return */
 
 import { fbFunctions } from '../firebaseClient.js';
+import { onNavigate } from '../routes.js';
 
 export const setUpPosts = (data) => {
   const conteiner = document.createElement('div');
@@ -27,7 +28,9 @@ export const setUpPosts = (data) => {
           <h2>${publicaciones.title} </h2> <h4> de ${publicaciones.autor}</h4></div>
           <div class='content'>
           <p class='content-text'>${publicaciones.text}</p></div>
-         
+          <div class='image-div'>
+          <img data-image='${publicaciones.photoInPost}'id='photoPost' class='photo-In-Post'>
+        </div>
           <div class='like-buttons post-header '>
           <img class='post-icon' src='' data-id='${doc.id}' data-likes='${publicaciones.likes}' id='like-${doc.id}'>
           <a class='tooltip' title='${publicaciones.likes}'>${publicaciones.likes.length} likes </a></div>
@@ -42,8 +45,19 @@ export const setUpPosts = (data) => {
 
       html += li;
       postContent.innerHTML = html;
-      const names = document.querySelectorAll('#nombre');
+      const photoPosts = document.querySelectorAll('#photoPost');
+      for (const photoPost of photoPosts) {
+        photoPost.src = `${photoPost.dataset.image === `${null}` ? '../icons&img/divisor.svg' : `${photoPost.dataset.image}`}`;
+        if (photoPost.dataset.image === `${null}`) {
+          photoPost.classList.add('hidden');
+        }
+        photoPost.src = `${photoPost.dataset.image === `${undefined}` ? '../icons&img/divisor.svg' : `${photoPost.dataset.image}`}`;
+        if (photoPost.dataset.image === `${undefined}`) {
+          photoPost.classList.add('hidden');
+        }
+      }
 
+      const names = document.querySelectorAll('#nombre');
       for (const name of names) {
         fs.collection('users').doc(name.dataset.id).get()
           .then((user) => {
@@ -66,7 +80,7 @@ export const setUpPosts = (data) => {
             photo.src = photoUser;
           });
       }
-      // ${publicaciones.userphoto ? publicaciones.userphoto : './icons&img/profileicon.svg'}
+
       const likes = document.querySelectorAll('.post-icon');
 
       for (const like of likes) {
@@ -143,7 +157,9 @@ export const setUpPosts = (data) => {
                   <input id='autor' value='${doc.data().autor}' type=text placeholder="Autor del libro" required>
                   <input id='title' value='${doc.data().title}' type=text placeholder="Titulo del libro" required>
                   <textarea id='content-input'  type=text placeholder="Escribe aqií tu reseña" maxlength="1200" required>${doc.data().text}</textarea>
-                  <button id='publicar' class='button' type=submit>Guardar Cambios</button>
+                   <input id='photo' value='Sube la foto de portada del libro que reseñas'  type=file acept='image/*'>
+                   <button id='publicar' class='button' type=submit>Guardar Cambios</button>
+                 
                   </form>
                   </div>`;
 
@@ -158,14 +174,32 @@ export const setUpPosts = (data) => {
                   const bookAutor = document.getElementById('autor').value;
                   const bookTitle = document.getElementById('title').value;
                   const postContent = document.getElementById('content-input').value;
+                  const image = document.getElementById('photo').files[0];
+                  if (image === undefined) {
+                    fbFunctions.updatePost(currentidPost, bookAutor, bookTitle, postContent)
+                      .then(() => {
+                        onNavigate('/timeline');
+                      })
+                      .catch(() => {
 
-                  fbFunctions.updatePost(edit.dataset.id, bookAutor, bookTitle, postContent)
-                    .then(() => {
-                      timeline.template();
-                    })
-                    .catch(() => {
+                      });
+                  } else {
+                    fbFunctions.pushNewPhoto(image, image.name)
+                      .then(() => {
+                        fbFunctions.pullNewPhoto(`${image.name}`).then((url) => {
+                          fbFunctions.updatePhotoPost(currentidPost, url)
+                            .then(() => {
+                              onNavigate('/timeline');
+                            })
+                            .catch(() => {
 
-                    });
+                            });
+                        });
+                      })
+                      .catch(() => {
+
+                      });
+                  }
                 });
                 return rootDiv;
               })

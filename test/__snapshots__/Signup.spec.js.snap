@@ -1,193 +1,115 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Signup should render Signup page 1`] = `
-"() =&gt; {
-  /* istanbul ignore next */
-  cov_17uxal9kqk().f[0]++;
-  const container =
-  /* istanbul ignore next */
-  (cov_17uxal9kqk().s[1]++, document.createElement('div'));
-  const html =
-  /* istanbul ignore next */
-  (cov_17uxal9kqk().s[2]++, \`&lt;nav&gt;&lt;div&gt;
-    &lt;img class='logo logo1' src='./icons&amp;img/logo.png'&gt;&lt;/div&gt;
-   
-    &lt;/nav&gt;
-&lt;div class='signUp-container'&gt;
+<div
+  id="root"
+>
+  <div>
+    <nav>
+      <div>
+        
     
-    &lt;h2&gt;Regístrate para empezar&lt;/h2&gt;
-    &lt;form id='registerForm'&gt;
-      &lt;label for='sgEmail'&gt;Email&lt;/label&gt;
-    &lt;input id='sgEmail' type=email required&gt;
-    &lt;label for='sgPassword'&gt;Contraseña&lt;/label&gt;
-    &lt;input id='sgPassword' type='password' required&gt;&lt;img class='s-button' src='./icons&amp;img/ver.svg'&gt;
-    &lt;p class='warning' id='errorMessage'&gt;&lt;/p&gt;
-    &lt;input id='signUpSubmit' type=submit value='Crear cuenta'&gt;
-      &lt;/form&gt;
-      &lt;img class='div' src='./icons&amp;img/div.svg'&gt;
-      &lt;button id='googleS' class='button'&gt;&lt;img class='gicon' src='./icons&amp;img/googleicon.svg'&gt;Regístrate con Google&lt;/button&gt;
-&lt;img id='return' class='return'src='./icons&amp;img/return.svg'&gt;
-&lt;/div&gt;\`);
+        <img
+          class="logo logo1"
+          src="./icons&img/logo.png"
+        />
+      </div>
+      
+   
+    
+    </nav>
+    
 
-  /* istanbul ignore next */
-  cov_17uxal9kqk().s[3]++;
-  container.innerHTML = html;
+    <div
+      class="signUp-container"
+    >
+      
+    
+    
+      <h2>
+        Regístrate para empezar
+      </h2>
+      
+    
+      <form
+        id="registerForm"
+      >
+        
+      
+        <label
+          for="sgEmail"
+        >
+          Email
+        </label>
+        
+    
+        <input
+          id="sgEmail"
+          required=""
+          type="email"
+        />
+        
+    
+        <label
+          for="sgPassword"
+        >
+          Contraseña
+        </label>
+        
+    
+        <input
+          id="sgPassword"
+          required=""
+          type="password"
+        />
+        <img
+          class="s-button"
+          src="./icons&img/ver.svg"
+        />
+        
+    
+        <p
+          class="warning"
+          id="errorMessage"
+        />
+        
+    
+        <input
+          id="signUpSubmit"
+          type="submit"
+          value="Crear cuenta"
+        />
+        
+      
+      </form>
+      
+      
+      <img
+        class="div"
+        src="./icons&img/div.svg"
+      />
+      
+      
+      <button
+        class="button"
+        id="googleS"
+      >
+        <img
+          class="gicon"
+          src="./icons&img/googleicon.svg"
+        />
+        Regístrate con Google
+      </button>
+      
 
-  /* istanbul ignore next */
-  cov_17uxal9kqk().s[4]++;
-  container.querySelector('#googleS').addEventListener('click', (e) =&gt; {
-    /* istanbul ignore next */
-    cov_17uxal9kqk().f[1]++;
-    cov_17uxal9kqk().s[5]++;
-    e.preventDefault();
+      <img
+        class="return"
+        id="return"
+        src="./icons&img/return.svg"
+      />
+      
 
-    /* istanbul ignore next */
-    cov_17uxal9kqk().s[6]++;
-
-    /* istanbul ignore next */
-    _firebaseClient.
-    /* istanbul ignore next */
-    fbFunctions.googleUserSignUp(e).then(() =&gt; {
-      /* istanbul ignore next */
-      cov_17uxal9kqk().f[2]++;
-      cov_17uxal9kqk().s[7]++;
-
-      /* istanbul ignore next */
-      (0,
-      /* istanbul ignore next */
-      _routes.
-      /* istanbul ignore next */
-      onNavigate)('/timeline');
-
-      /* istanbul ignore next */
-      cov_17uxal9kqk().s[8]++;
-
-      /* istanbul ignore next */
-      _firebaseClient.
-      /* istanbul ignore next */
-      fbFunctions.getPosts();
-
-      /* istanbul ignore next */
-      cov_17uxal9kqk().s[9]++;
-
-      /* istanbul ignore next */
-      _firebaseClient.
-      /* istanbul ignore next */
-      fbFunctions.createUserDoc();
-    }).catch((error) =&gt; {
-      /* istanbul ignore next */
-      cov_17uxal9kqk().f[3]++;
-      cov_17uxal9kqk().s[10]++;
-      container.querySelector('#errorMessage').innerHTML = error;
-    });
-  });
-
-  /* istanbul ignore next */
-  cov_17uxal9kqk().s[11]++;
-  container.querySelector('#return').addEventListener('click', (e) =&gt; {
-    /* istanbul ignore next */
-    cov_17uxal9kqk().f[4]++;
-    cov_17uxal9kqk().s[12]++;
-    e.preventDefault();
-
-    /* istanbul ignore next */
-    cov_17uxal9kqk().s[13]++;
-
-    /* istanbul ignore next */
-    (0,
-    /* istanbul ignore next */
-    _routes.
-    /* istanbul ignore next */
-    onNavigate)('/');
-  });
-
-  /* istanbul ignore next */
-  cov_17uxal9kqk().s[14]++;
-  container.querySelector('.s-button').addEventListener('click', (e) =&gt; {
-    /* istanbul ignore next */
-    cov_17uxal9kqk().f[5]++;
-    cov_17uxal9kqk().s[15]++;
-    e.preventDefault();
-    const tipo =
-    /* istanbul ignore next */
-    (cov_17uxal9kqk().s[16]++, container.querySelector('#sgPassword'));
-
-    /* istanbul ignore next */
-    cov_17uxal9kqk().s[17]++;
-
-    if (tipo.type === 'password') {
-      /* istanbul ignore next */
-      cov_17uxal9kqk().b[0][0]++;
-      cov_17uxal9kqk().s[18]++;
-      tipo.type = 'text';
-    } else {
-      /* istanbul ignore next */
-      cov_17uxal9kqk().b[0][1]++;
-      cov_17uxal9kqk().s[19]++;
-      tipo.type = 'password';
-    }
-  });
-  const signUpData =
-  /* istanbul ignore next */
-  (cov_17uxal9kqk().s[20]++, container.querySelector('#registerForm'));
-
-  /* istanbul ignore next */
-  cov_17uxal9kqk().s[21]++;
-  signUpData.addEventListener('submit', (e) =&gt; {
-    /* istanbul ignore next */
-    cov_17uxal9kqk().f[6]++;
-    cov_17uxal9kqk().s[22]++;
-    e.preventDefault();
-    const signupEmail =
-    /* istanbul ignore next */
-    (cov_17uxal9kqk().s[23]++, container.querySelector('#sgEmail').value);
-    const signupPassword =
-    /* istanbul ignore next */
-    (cov_17uxal9kqk().s[24]++, container.querySelector('#sgPassword').value);
-
-    /* istanbul ignore next */
-    cov_17uxal9kqk().s[25]++;
-
-    /* istanbul ignore next */
-    _firebaseClient.
-    /* istanbul ignore next */
-    fbFunctions.userSignup(signupEmail, signupPassword).then(() =&gt; {
-      /* istanbul ignore next */
-      cov_17uxal9kqk().f[7]++;
-      cov_17uxal9kqk().s[26]++;
-
-      /* istanbul ignore next */
-      (0,
-      /* istanbul ignore next */
-      _routes.
-      /* istanbul ignore next */
-      onNavigate)('/profile');
-
-      /* istanbul ignore next */
-      cov_17uxal9kqk().s[27]++;
-
-      /* istanbul ignore next */
-      _firebaseClient.
-      /* istanbul ignore next */
-      fbFunctions.getCurrentUserPosts();
-
-      /* istanbul ignore next */
-      cov_17uxal9kqk().s[28]++;
-
-      /* istanbul ignore next */
-      _firebaseClient.
-      /* istanbul ignore next */
-      fbFunctions.createUserDoc();
-    }).catch((error) =&gt; {
-      /* istanbul ignore next */
-      cov_17uxal9kqk().f[8]++;
-      cov_17uxal9kqk().s[29]++;
-      container.querySelector('#errorMessage').innerHTML = error;
-    });
-  });
-
-  /* istanbul ignore next */
-  cov_17uxal9kqk().s[30]++;
-  return container;
-}"
+    </div>
+  </div>
+</div>
 `;

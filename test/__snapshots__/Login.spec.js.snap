@@ -1,3 +1,118 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Login should render Login page 1`] = `[Function]`;
+exports[`Login should render Login page 1`] = `
+<div
+  id="root"
+>
+  <div>
+    <nav>
+      
+    
+      <img
+        class="logo"
+        src="./icons&img/logo.png"
+      />
+      
+   
+    
+    
+    </nav>
+    
+    
+    <div
+      class="signUp-container"
+    >
+      
+    
+      <h2>
+        Inicia sesión
+      </h2>
+      
+   
+    
+      <form
+        class="form"
+        id="loginForm"
+      >
+        
+
+    
+        <label
+          for="lgEmail"
+        >
+          Email
+        </label>
+        
+        
+        <input
+          id="lgEmail"
+          required=""
+          type="email"
+        />
+        
+        
+        <label
+          for="lgPassword"
+        >
+          Contraseña
+        </label>
+        
+        
+        <input
+          id="lgPassword"
+          required=""
+          type="password"
+        />
+        <img
+          id="seeLps"
+          src="./icons&img/ver.svg"
+        />
+        
+         
+        <p
+          class="warning"
+          id="errorMessage1"
+        />
+        
+         
+        <input
+          id="loginSubmit"
+          type="submit"
+          value="Iniciar sesión"
+        />
+        
+      
+    
+      </form>
+      
+    
+      <img
+        class="div"
+        src="./icons&img/div.svg"
+      />
+      
+    
+      <button
+        class="button"
+        id="googleL"
+      >
+        <img
+          class="gicon"
+          src="./icons&img/googleicon.svg"
+        />
+        Inicia sesión con Google
+      </button>
+      
+    
+      <img
+        class="return"
+        id="return"
+        src="./icons&img/return.svg"
+      />
+      
+    
+    </div>
+     
+  </div>
+</div>
+`;

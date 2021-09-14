@@ -22,6 +22,7 @@ export const Profile = () => {
   <input id='Nombre' value='' type=text placeholder='Pablito Perez'>
   <label for='Email'>Email</label>
   <input id='Email' value='' type=text >
+  <label for='photo'>Foto de perfil</label>
   <input id='photo' value='Selecciona tu foto de perfil'  type=file acept='image/*'>
  
   <button id='publicar' class='button' type=submit>Guardar Cambios</button></form>
@@ -69,8 +70,10 @@ export const Profile = () => {
       .then(() => {
         fbFunctions.pullNewPhoto(photo.name).then((url) => {
           fbFunctions.updatePhotoProfile(url).then(() => {
-            fbFunctions.updateUserDoc(name, email, url);
-            onNavigate('/profile');
+            fbFunctions.updateUserDoc(name, email, url).then(() => {
+              onNavigate('/profile');
+              fbFunctions.getCurrentUserPosts();
+            });
           });
         });
       })

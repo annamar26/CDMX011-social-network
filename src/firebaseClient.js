@@ -129,17 +129,17 @@ export const fbFunctions = {
     return docRef.get();
   },
 
-  createPost(autorLibro, titulo, content) {
+  createPost(autorLibro, titulo, content, url) {
     const user = this.getUser().uid;
     return fs.collection('publicaciones').doc().set({
-      user: this.setDisplayName(),
+
       autor: autorLibro,
       title: titulo,
       fecha: new Date(),
       text: content,
       likes: [],
-      userphoto: this.setPhotoInPost(),
       uid: user,
+      photoInPost: url,
     });
   },
   updatePost(idPost, titulo, autorLibro, content) {
@@ -150,6 +150,15 @@ export const fbFunctions = {
       title: titulo,
       fecha: new Date(),
       text: content,
+
+    });
+  },
+  updatePhotoPost(idPost, url) {
+    const post = fs.collection('publicaciones').doc(idPost);
+
+    return post.update({
+
+      photoInPost: url,
 
     });
   },

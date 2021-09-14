@@ -8,7 +8,7 @@ describe('Signup', () => {
   document.body.innerHTML = '<div id="root"></div>';
   const rootDiv = document.getElementById('root');
   it('should render Signup page', () => {
-    render(rootDiv, Signup);
-    expect(rootDiv.innerHTML).toMatchSnapshot();
+    render(rootDiv, Signup());
+    expect(rootDiv).toMatchSnapshot();
   });
 });

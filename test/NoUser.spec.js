@@ -8,8 +8,8 @@ describe('NoUser', () => {
   document.body.innerHTML = '<div id="root"></div>';
   const rootDiv = document.getElementById('root');
   it('should render NoUser page', () => {
-    render(rootDiv, NoUser);
+    render(rootDiv, NoUser());
 
-    expect(rootDiv.innerHTML).toMatchSnapshot();
+    expect(rootDiv).toMatchSnapshot();
   });
 });

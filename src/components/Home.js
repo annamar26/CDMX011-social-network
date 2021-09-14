@@ -4,7 +4,7 @@ export const Home = () => {
   const conteiner = document.createElement('div');
   const html = `<nav>
     <img class='logo' src='./icons&img/logo.png'>
-    <img class='menu' src='./icons&img/menu.svg'/>
+   
     </nav>
 
     <main>

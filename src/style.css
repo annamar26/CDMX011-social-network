@@ -353,6 +353,21 @@ font-size: 3.4355vw;
   
     
 }
+.hidden{
+    display: none
+}
+.photo-In-Post{
+    height: 30vh;
+    align-self: center;
+    margin-top: 1.5vh;
+}
+.image-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
 .like-buttons{
     display: flex;
     margin-top: 2vh;
@@ -403,6 +418,9 @@ justify-content: center;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 7vh !important;
 
     
 }
