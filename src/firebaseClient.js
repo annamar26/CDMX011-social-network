@@ -66,12 +66,20 @@ export const fbFunctions = {
 
     });
   },
-  updateUserDoc(name, correo, photo) {
+  updateUserDoc(name, correo) {
     const user = fs.collection('users').doc(this.getUser().uid);
 
     return user.update({
       displayName: name,
       email: correo,
+
+    });
+  },
+  updateUserDocPhoto(photo) {
+    const user = fs.collection('users').doc(this.getUser().uid);
+
+    return user.update({
+
       photoURL: photo,
 
     });

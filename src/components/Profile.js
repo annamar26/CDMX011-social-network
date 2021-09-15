@@ -25,7 +25,7 @@ export const Profile = () => {
   <label for='photo'>Foto de perfil</label>
   <input id='photo' value='Selecciona tu foto de perfil'  type=file acept='image/*'>
  
-  <button id='publicar' class='button' type=submit>Guardar Cambios</button></form>
+  <button id='publicar' class='button' type='submit'>Guardar Cambios</button></form>
  </div>
    <div id='postUserCointainer' class='profile-timeline posts-container'></div>
    <div id='footer-conteiner'>
@@ -57,29 +57,37 @@ export const Profile = () => {
     const name = document.getElementById('Nombre').value;
     const email = document.getElementById('Email').value;
     const photo = document.getElementById('photo').files[0];
+    if (photo === undefined) {
+      fbFunctions.updateStringsProfile(name, email)
+        .then(() => {
+          fbFunctions.updateUserDoc(name, email).then(() => {
+            Profile();
+            fbFunctions.getCurrentUserPosts();
+          });
+        })
+        .catch(() => {
 
-    fbFunctions.updateStringsProfile(name, email)
-      .then(() => {
-
-      })
-      .catch(() => {
-
-      });
-
-    fbFunctions.pushNewPhoto(photo, photo.name)
-      .then(() => {
-        fbFunctions.pullNewPhoto(photo.name).then((url) => {
-          fbFunctions.updatePhotoProfile(url).then(() => {
-            fbFunctions.updateUserDoc(name, email, url).then(() => {
-              onNavigate('/profile');
-              fbFunctions.getCurrentUserPosts();
+        });
+    } else {
+      fbFunctions.pushNewPhoto(photo, photo.name)
+        .then(() => {
+          fbFunctions.pullNewPhoto(photo.name).then((url) => {
+            fbFunctions.updateStringsProfile(name, email).then(() => {
+              fbFunctions.updatePhotoProfile(url).then(() => {
+                fbFunctions.updateUserDocPhoto(url).then(() => {
+                  fbFunctions.updateUserDoc(name, email).then(() => {
+                    Profile();
+                    fbFunctions.getCurrentUserPosts();
+                  });
+                });
+              });
             });
           });
-        });
-      })
-      .catch(() => {
+        })
+        .catch(() => {
 
-      });
+        });
+    }
   });
 
   return container;

@@ -1,6 +1,7 @@
 /**
  * @jest-environment jsdom
  */
+
 import { setUpPosts } from '../src/components/PostsRender.js';
 import { render } from '../src/utils.js';
 

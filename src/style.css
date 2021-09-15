@@ -413,7 +413,6 @@ justify-content: center;
 }
 
 .profile{
-    margin-top: 8vh;
     display: flex;
     flex-direction: column;
     justify-content: center;

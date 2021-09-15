@@ -13,12 +13,7 @@ exports[`Home should render Home page 1`] = `
         src="./icons&img/logo.png"
       />
       
-    
-      <img
-        class="menu"
-        src="./icons&img/menu.svg"
-      />
-      
+   
     
     </nav>
     
